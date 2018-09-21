@@ -34,7 +34,7 @@ class sencbi(object):
         d = {}
         for line in open(file, "r", encoding='utf-8'):
             line = re.sub('\n$', '', line)
-            if re.search("  $", line) == None:
+            if not re.search("  $", line):
                 li = re.split(sep, line)
                 d[li[0]] = li[1]
         return(d)
@@ -44,7 +44,7 @@ class sencbi(object):
             try:
                 res = requests.post(url=self.posturl, headers=self.header, data=self.form)
                 break
-            except:
+            except TimeoutError:
                 time.sleep(3)
         soup = BeautifulSoup(res.text, 'html.parser')
         sumpmid = soup.select('.rprtid')
@@ -129,12 +129,12 @@ class sencbi(object):
         title = tree.xpath('//h1/text()')
         try:
             title[0]
-        except:
+        except KeyError:
             title = "no_title"
         doi = tree.xpath('//dl[@class="rprtid"]/dd/a/text()')
         try:
             doi[0]
-        except:
+        except KeyError:
             doi = 'None'
 
         if dic_email:
@@ -142,13 +142,13 @@ class sencbi(object):
                 try:
                     outfile.write('%s\t%s\t%s\t%s\t%s\t%s\t%s\n' %
                                   (dic_email[k], dic_author[k], dic_china[k], authortinfo[k], title[0], doi[0], pmid))
-                except:
+                except KeyError:
                     pass
         else:
             try:
                 outfile.write('None_email\t%s\tUnknown\t%s\t%s\t%s\t%s\n' %
                               (auther, authortinfo, title[0], doi[0], pmid))
-            except:
+            except KeyError:
                 pass
 
     def get_pmid_from_main_page(self):
@@ -222,7 +222,7 @@ class sencbi(object):
                 for line in prefile:
                     prepmid.append(re.search('\t([^\t\n]+)$', line).group(1).strip())
 
-        except:
+        except FileNotFoundError:
             prepmid = []
         with open(outpath, 'a', encoding='utf-8') as outff:
             if not prepmid:
