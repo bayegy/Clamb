@@ -15,23 +15,24 @@ class weipu(object):
         self.keyword = keyword
         self.header = self.formdict(file=header, sep=': +')
         #self.form = self.formdict(file=form, sep='  ')
-        #print(self.header)
+        # print(self.header)
 
     def get_id(self, page):
         while True:
             try:
                 res = requests.get(
-                    # url='http://qikan.cqvip.com/zk/search.aspx?from=zk_search&key=U%3D' + self.keyword + '&page=' + str(page) + '&size=50&ls=1#search-result-list',
-                    url='http://qikan.cqvip.com/zk/search.aspx?from=zk_search&key=U%3D%E5%BE%AE%E7%94%9F%E7%89%A9&page=2&size=50&ls=1#search-result-list',
+                    url='http://qikan.cqvip.com/zk/search.aspx?from=zk_search&key=U%3D' +
+                        self.keyword + '&page=' + str(page) + '&size=50&ls=1#search-result-list',
+                    # url='http://qikan.cqvip.com/zk/search.aspx?from=zk_search&key=U%3D%E5%BE%AE%E7%94%9F%E7%89%A9&page=2&size=50&ls=1#search-result-list',
                     headers=self.header)
                 break
             except TimeoutError:
-                print('TimeoutError')
+                print('TimeoutError, please wait for 2 seconds')
                 time.sleep(2)
-        print(res.text)
+        # print(res.text)
         tree = html.fromstring(res.content)
         id_set = tree.xpath(
-            '//input[@name="hfldSelectedIds"]/@value')
+            '//input[@name="vcubeid"]/@value')
         return(id_set)
 
     def formdict(self, file, sep):
@@ -46,5 +47,5 @@ class weipu(object):
 
 if __name__ == '__main__':
     page = weipu(keyword='微生物', header='header.txt')
-    ids = page.get_id(page=1)
-    #print(ids)
+    ids = page.get_id(page=2)
+    print(ids)
