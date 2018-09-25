@@ -83,10 +83,10 @@ class weipu(object):
 
             try:
                 info = tree.xpath('//p[@class="abstrack"]/text()')[1].strip()
-                info = re.sub('\n', '; ', info)
+                info = re.sub('[\n\r]+', '; ', info)
             except IndexError:
                 info = ""
-            cinfo = info[:]
+            cinfo = info
 
             info = re.sub("．", ".", info)
             info = re.split("通[讯|信]作者", info.strip())
@@ -140,7 +140,7 @@ class weipu(object):
         print('Start to get paper id')
         pmid_list = []
         for p in range(self.totalpage):
-            print('gei id of page' + str(p + 1))
+            print('get id of page' + str(p + 1))
             pmid_list = pmid_list + self.get_id(page=p + 1)
             time.sleep(random.randint(1, 3))
 
@@ -162,7 +162,7 @@ class weipu(object):
                     info = self.get_info(id=perid)
                     info = info + '\t' + perid + '\n'
                     outff.write(info)
-                    time.sleep(random.randint(1, 4))
+                    time.sleep(2+random.randint(1, 4))
 
 
 if __name__ == '__main__':
