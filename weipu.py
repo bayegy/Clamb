@@ -117,7 +117,7 @@ class weipu(object):
             prepmid = []
         with open(outpath, 'a', encoding='gbk') as outff:
             if not prepmid:
-                outff.write('E-mail\tAuthor\tIf-China\tAuthor_information\tTitle\tDOI\tPMID\n')
+                outff.write('作者邮箱\t作者\t通讯作者邮箱\t通讯作者\t所有作者\t所有作者信息\t作者机构\t文章ID\n')
             print('Start to get author information......')
             d = 0
             for perid in self.pmid_list:
