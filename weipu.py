@@ -16,6 +16,11 @@ class weipu(object):
         self.keyword = keyword
         self.header = self.formdict(file=header, sep=': +')
         self.header['Connection'] = 'close'
+        self.headforget = {}
+        self.headforget['Host'] = self.header['Host']
+        self.headforget['User-Agent'] = self.header['User-Agent']
+        self.headforget['Referer'] = self.header['Referer']
+        self.headforget['Connection'] = 'close'
         f_page = requests.get(
             url='http://qikan.cqvip.com/zk/search.aspx?from=article_detail&key=U%3D' + self.keyword, headers=self.header)
         tree = html.fromstring(f_page.content)
@@ -58,13 +63,14 @@ class weipu(object):
     def get_info(self, id):
         while True:
             try:
-                res = requests.get(url='http://qikan.cqvip.com/article/detail.aspx?id=%s&from=zk_search' % (str(id)))
+                res = requests.get(url='http://qikan.cqvip.com/article/detail.aspx?id=%s&from=zk_search' %
+                                   (str(id)), headers=self.headforget)
                 tree = html.fromstring(res.content)
                 title = tree.xpath('//h1/text()')[0].strip()
                 if title:
                     break
                 else:
-                    print('Loading Error, please wait to 1 second')
+                    print('Loading Error, please wait for 1 second')
                     time.sleep(1)
             except TimeoutError:
                 print("TimeoutError, please wait for 2 seconds")
@@ -108,14 +114,14 @@ class weipu(object):
                 pass
 
             f_email = '无'
-            if re.search('[a-zA-Z0-9_\-.．]+@[a-zA-Z0-9_\-.．]+', info[0]):
-                f_email = re.search('[a-zA-Z0-9_\-.．]+@[a-zA-Z0-9_\-.．]+', info[0]).group()
+            if re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[0]):
+                f_email = re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[0]).group()
                 f_email = f_email.strip('.|．')
 
             m_email = '无'
             try:
-                if re.search('[a-zA-Z0-9_\-.．]+@[a-zA-Z0-9_\-.．]+', info[1]):
-                    m_email = re.search('[a-zA-Z0-9_\-.．]+@[a-zA-Z0-9_\-.．]+', info[1]).group()
+                if re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[1]):
+                    m_email = re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[1]).group()
                     m_email = m_email.strip('.|．')
             except IndexError:
                 pass
@@ -162,7 +168,7 @@ class weipu(object):
                     info = self.get_info(id=perid)
                     info = info + '\t' + perid + '\n'
                     outff.write(info)
-                    time.sleep(2+random.randint(1, 4))
+                    time.sleep(2 + random.randint(1, 4))
 
 
 if __name__ == '__main__':
