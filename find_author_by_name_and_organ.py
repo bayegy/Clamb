@@ -122,17 +122,30 @@ class weipu(object):
             f_email = '无'
             if re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[0]):
                 f_email = re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[0]).group()
-                f_email = f_email.strip('.|．')
+                f_email = f_email.strip('\.|．')
 
             m_email = '无'
             try:
                 if re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[1]):
                     m_email = re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[1]).group()
-                    m_email = m_email.strip('.|．')
+                    m_email = m_email.strip('\.|．')
             except IndexError:
                 pass
 
-            return([f_email, f_author, m_email, m_author, ';'.join(author), cinfo, ';'.join(organ), title])
+            f_tel = '无'
+            if re.search('Tel：([0-9\-—]+)', info[0]):
+                f_tel = re.search('Tel：([0-9\-—]+)', info[0]).group(1)
+                f_tel = f_tel.strip('\.|．|\-')
+
+            m_tel = '无'
+            try:
+                if re.search('Tel：([0-9\-—]+)', info[1]):
+                    m_tel = re.search('Tel：([0-9\-—]+)', info[1]).group(1)
+                    m_tel = m_tel.strip('\.|．|\-')
+            except IndexError:
+                pass
+
+            return([f_email, f_author, m_email, m_author, ';'.join(author), cinfo, ';'.join(organ), title, f_tel, m_tel])
         else:
             return(False)
 
@@ -170,7 +183,7 @@ class weipu(object):
         pre_table = self.formkeyword(table=table)
         with open(outpath, 'a', encoding='utf-8') as outff:
             if not prepmid:
-                outff.write('跟进助理\t备注\t项目名\t负责人\t职称\t依托单位\t经费\t起始时间\t领域\t电话\t邮箱\t维普邮箱\t详细信息\t维普机构\t查询方式\t搜索关键词\n')
+                outff.write('跟进助理\t备注\t项目名\t负责人\t职称\t依托单位\t经费\t起始时间\t领域\t电话\t邮箱\t维普邮箱\t详细信息\t维普机构\t电话\t查询方式\t搜索关键词\n')
             print('Start to get author information......')
             d = 0
             for origin, name, short_key, long_key, pre_email in pre_table:
@@ -180,9 +193,9 @@ class weipu(object):
                 sys.stdout.write("\r[%s%s] %.3f%%" % ('█' * done, ' ' * (50 - done), perctg))
                 sys.stdout.flush()
                 if long_key not in prepmid:
-                    finded_email = '无法找到邮箱\t\t\t'
+                    finded_email = '无法找到邮箱\t\t\t\t'
                     if pre_email:
-                        finded_email = pre_email
+                        finded_email = pre_email + '\t\t\t\t'
                     else:
                         page = 0
                         totalpage = 1
@@ -190,6 +203,8 @@ class weipu(object):
                         while page < totalpage and ifound and page < maxtry:
                             id_set = []
                             page += 1
+                            sys.stdout.write("name and organization searching in page%s" % (page))
+                            sys.stdout.flush()
                             finded_id = self.get_id(page=page, keyword=long_key)
                             if finded_id:
                                 id_set = finded_id[1]
@@ -201,22 +216,24 @@ class weipu(object):
                                 if finded_info:
                                     if not finded_info[0] == '无' and name == finded_info[1]:
                                         finded_email = finded_info[0] + '\t' + finded_info[5] + \
-                                            '\t' + finded_info[6] + '\t' + '根据姓名和单位查找'
+                                            '\t' + finded_info[6] + '\t' + finded_info[8] + '\t' + '根据姓名和单位查找'
                                         break
                                     elif not finded_info[2] == '无' and name == finded_info[3]:
                                         finded_email = finded_info[2] + '\t' + finded_info[5] + \
-                                            '\t' + finded_info[6] + '\t' + '根据姓名和单位查找'
+                                            '\t' + finded_info[6] + '\t' + finded_info[9] + '\t' + '根据姓名和单位查找'
                                         break
-                            if not finded_email == '无法找到邮箱\t\t\t':
+                            if not finded_email == '无法找到邮箱\t\t\t\t':
                                 break
 
-                        if finded_email == '无法找到邮箱\t\t\t':
+                        if finded_email == '无法找到邮箱\t\t\t\t':
                             page = 0
                             totalpage = 1
                             ifound = True
                             while page < totalpage and ifound and page < maxtry:
                                 id_set = []
                                 page += 1
+                                sys.stdout.write("name searching in page%s" % (page))
+                                sys.stdout.flush()
                                 finded_id = self.get_id(page=page, keyword=short_key)
                                 if finded_id:
                                     id_set = id_set + finded_id[1]
@@ -227,13 +244,13 @@ class weipu(object):
                                     if finded_info:
                                         if not finded_info[0] == '无' and name == finded_info[1]:
                                             finded_email = finded_info[0] + '\t' + finded_info[5] + \
-                                                '\t' + finded_info[6] + '\t' + '只根据名字查找'
+                                                '\t' + finded_info[6] + '\t' + finded_info[8] + '\t' + '只根据名字查找'
                                             break
                                         elif not finded_info[2] == '无' and name == finded_info[3]:
                                             finded_email = finded_info[2] + '\t' + finded_info[5] + \
-                                                '\t' + finded_info[6] + '\t' + '只根据名字查找'
+                                                '\t' + finded_info[6] + '\t' + finded_info[9] + '\t' + '只根据名字查找'
                                             break
-                                if not finded_email == '无法找到邮箱\t\t\t':
+                                if not finded_email == '无法找到邮箱\t\t\t\t':
                                     break
                     outff.write('%s\t%s\t%s\n' % (origin, finded_email, long_key))
 
