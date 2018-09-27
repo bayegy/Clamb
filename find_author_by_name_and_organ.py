@@ -22,6 +22,7 @@ class weipu(object):
         self.headforget['Connection'] = 'close'
 
     def get_id(self, page, keyword):
+        time.sleep(1 + random.randint(1, 3))
         tm = 0
         out = False
         while tm < 3:
@@ -41,8 +42,8 @@ class weipu(object):
                 except IndexError:
                     pass
                 tm += 1
-                out = [totalpage, id_set]
                 if id_set:
+                    out = [totalpage, id_set]
                     return(out)
                 else:
                     print('Loading Error, please wait to 1 second')
@@ -85,6 +86,7 @@ class weipu(object):
         author = author + author_s
 
         if author:
+            author = [at.strip() for at in author]
             organ = tree.xpath('//p[@class="organ"]/a/text()')
             organ_s = tree.xpath('//p[@class="organ"]/span/a/text()')
             organ = organ + organ_s
@@ -149,15 +151,12 @@ class weipu(object):
                             on = w[0]
                         elif w[1].strip() == '邮箱':
                             en = w[0]
-                    # print(an)
-                    # print(on)
-                    # print(en)
                 else:
-                    keyword.append(['\t'.join(li), li[an], 'A%3D' + li[an], 'A%3D' +
-                                    li[an] + '[*]' + 'S%3D' + li[on], li[en]])
+                    keyword.append(['\t'.join(li[0:-1]), li[an].strip(), 'A%3D' + li[an].strip(), 'A%3D' +
+                                    li[an].strip() + '[*]' + 'S%3D' + li[on].strip(), li[en].strip()])
         return(keyword)
 
-    def main(self, table):
+    def main(self, table, maxtry=3):
         outpath = table + '_search_for_email.xls'
         try:
             with open(outpath, 'r', encoding='utf-8') as prefile:
@@ -171,7 +170,7 @@ class weipu(object):
         pre_table = self.formkeyword(table=table)
         with open(outpath, 'a', encoding='utf-8') as outff:
             if not prepmid:
-                outff.write('跟进助理\t备注\t项目名\t负责人\t职称\t依托单位\t经费\t起始时间\t领域\t电话\t邮箱\t维普邮箱\t附加信息\n')
+                outff.write('跟进助理\t备注\t项目名\t负责人\t职称\t依托单位\t经费\t起始时间\t领域\t电话\t邮箱\t维普邮箱\t详细信息\t维普机构\t查询方式\t搜索关键词\n')
             print('Start to get author information......')
             d = 0
             for origin, name, short_key, long_key, pre_email in pre_table:
@@ -181,50 +180,62 @@ class weipu(object):
                 sys.stdout.write("\r[%s%s] %.3f%%" % ('█' * done, ' ' * (50 - done), perctg))
                 sys.stdout.flush()
                 if long_key not in prepmid:
-                    finded_email = '无法找到邮箱'
+                    finded_email = '无法找到邮箱\t\t\t'
                     if pre_email:
                         finded_email = pre_email
                     else:
                         page = 0
                         totalpage = 1
-                        id_set = []
                         ifound = True
-                        while page < totalpage and ifound:
+                        while page < totalpage and ifound and page < maxtry:
+                            id_set = []
                             page += 1
                             finded_id = self.get_id(page=page, keyword=long_key)
-                            id_set = id_set + finded_id[1]
-                            totalpage = finded_id[0]
-                            ifound = finded_id
-                        for eachid in id_set:
-                            finded_info = self.get_info(id=eachid)
-                            if finded_info:
-                                if not finded_info[0] == '无' and name == finded_info[1]:
-                                    finded_email = finded_info[0] + '\t' + finded_info[5]
-                                    break
-                                elif not finded_info[2] == '无' and name == finded_info[3]:
-                                    finded_email = finded_info[2] + '\t' + finded_info[5]
-                                    break
-                        if finded_email == '无法找到邮箱':
-                            page = 0
-                            totalpage = 1
-                            id_set = []
-                            ifound = True
-                            while page < totalpage and ifound:
-                                page += 1
-                                finded_id = self.get_id(page=page, keyword=short_key)
-                                id_set = id_set + finded_id[1]
+                            if finded_id:
+                                id_set = finded_id[1]
                                 totalpage = finded_id[0]
-                                ifound = finded_id
+                            ifound = finded_id
+
                             for eachid in id_set:
                                 finded_info = self.get_info(id=eachid)
                                 if finded_info:
                                     if not finded_info[0] == '无' and name == finded_info[1]:
-                                        finded_email = finded_info[0] + '\t' + finded_info[5] + '\t' + '只根据名字查找'
+                                        finded_email = finded_info[0] + '\t' + finded_info[5] + \
+                                            '\t' + finded_info[6] + '\t' + '根据姓名和单位查找'
                                         break
                                     elif not finded_info[2] == '无' and name == finded_info[3]:
-                                        finded_email = finded_info[0] + '\t' + finded_info[5] + '\t' + '只根据名字查找'
+                                        finded_email = finded_info[2] + '\t' + finded_info[5] + \
+                                            '\t' + finded_info[6] + '\t' + '根据姓名和单位查找'
                                         break
-                outff.write('%s\t%s\t%s\n' % (origin, finded_email, long_key))
+                            if not finded_email == '无法找到邮箱\t\t\t':
+                                break
+
+                        if finded_email == '无法找到邮箱\t\t\t':
+                            page = 0
+                            totalpage = 1
+                            ifound = True
+                            while page < totalpage and ifound and page < maxtry:
+                                id_set = []
+                                page += 1
+                                finded_id = self.get_id(page=page, keyword=short_key)
+                                if finded_id:
+                                    id_set = id_set + finded_id[1]
+                                    totalpage = finded_id[0]
+                                ifound = finded_id
+                                for eachid in id_set:
+                                    finded_info = self.get_info(id=eachid)
+                                    if finded_info:
+                                        if not finded_info[0] == '无' and name == finded_info[1]:
+                                            finded_email = finded_info[0] + '\t' + finded_info[5] + \
+                                                '\t' + finded_info[6] + '\t' + '只根据名字查找'
+                                            break
+                                        elif not finded_info[2] == '无' and name == finded_info[3]:
+                                            finded_email = finded_info[2] + '\t' + finded_info[5] + \
+                                                '\t' + finded_info[6] + '\t' + '只根据名字查找'
+                                            break
+                                if not finded_email == '无法找到邮箱\t\t\t':
+                                    break
+                    outff.write('%s\t%s\t%s\n' % (origin, finded_email, long_key))
 
 
 if __name__ == '__main__':
