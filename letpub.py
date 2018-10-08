@@ -9,7 +9,7 @@ import math
 import random
 
 
-class weipu(object):
+class letpub(object):
     """docstring for weipu"""
 
     def __init__(self, header):
@@ -21,39 +21,13 @@ class weipu(object):
         self.headforget['Referer'] = self.header['Referer']
         self.headforget['Connection'] = 'close'
 
-    def get_id(self, page, keyword):
-        time.sleep(1 + random.randint(1, 3))
-        tm = 0
-        out = False
-        while tm < 3:
-            try:
-                res = requests.get(
-                    url='http://qikan.cqvip.com/zk/search.aspx?from=zk_search&key=' +
-                        keyword + '&page=' + str(page) + '&size=50&ls=1#search-result-list',
-                    # url='http://qikan.cqvip.com/zk/search.aspx?from=zk_search&key=U%3D%E5%BE%AE%E7%94%9F%E7%89%A9&page=2&size=50&ls=1#search-result-list',
-                    headers=self.header)
-                tree = html.fromstring(res.content)
-                id_set = tree.xpath(
-                    '//input[@name="vcubeid"]/@value')
-                id_set = [id.strip() for id in id_set]
-                try:
-                    totalpage = tree.xpath('//span[@class="total"]/text()')[0]
-                    totalpage = int(re.sub(",", "", re.search("[\d|,]+", totalpage).group()))
-                except IndexError:
-                    pass
-                tm += 1
-                if id_set:
-                    out = [totalpage, id_set]
-                    return(out)
-                else:
-                    print('\n Loading Error, tring another time')
-                    time.sleep(2)
+    def getkey(self)
+        res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant')
+        tree = html.fromstring(res.content)
+        key=tree.xpath('//SELECT[@id="addcomment_s1"]/OPTION/@value')
+        subkey=tree.xpath('//span[@id="categorysub"]/OPTION/@value')
+        return([key,subkey])
 
-            except TimeoutError:
-                print('TimeoutError, please wait for 2 seconds')
-                time.sleep(2)
-        return(out)
-        # print(res.text)
 
     def formdict(self, file, sep):
         d = {}
