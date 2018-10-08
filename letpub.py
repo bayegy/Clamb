@@ -7,6 +7,7 @@ import sys
 import time
 import math
 import random
+import numpy as np
 
 
 class letpub(object):
@@ -18,16 +19,18 @@ class letpub(object):
         self.headforget = {}
         self.headforget['Host'] = self.header['Host']
         self.headforget['User-Agent'] = self.header['User-Agent']
-        self.headforget['Referer'] = self.header['Referer']
+        #self.headforget['Referer'] = self.header['Referer']
         self.headforget['Connection'] = 'close'
+        self.keys = self.getkey()
 
-    def getkey(self)
+    def getkey(self):
         res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant')
         tree = html.fromstring(res.content)
-        key=tree.xpath('//SELECT[@id="addcomment_s1"]/OPTION/@value')
-        subkey=tree.xpath('//span[@id="categorysub"]/OPTION/@value')
-        return([key,subkey])
-
+        key = tree.xpath('//select[@name="addcomment_s1"]/option/@value')
+        subkey = tree.xpath('//select[@name="subcategory"]/option/@value')
+        key.remove("0")
+        subkey.remove("")
+        return([key, subkey])
 
     def formdict(self, file, sep):
         d = {}
@@ -38,115 +41,88 @@ class letpub(object):
                 d[li[0]] = li[1]
         return(d)
 
-    def get_info(self, id):
+    def checkid(self, search_id, endyear=False):
         time.sleep(1 + random.randint(1, 4))
+        name, year, page, key, subkey = re.split('_', search_id)
         while True:
             try:
-                res = requests.get(url='http://qikan.cqvip.com/article/detail.aspx?id=%s&from=zk_search' %
-                                   (str(id)), headers=self.headforget)
-                tree = html.fromstring(res.content)
-                title = tree.xpath('//h1/text()')[0].strip()
-                if title:
-                    break
+                if endyear:
+                    res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
+                                       (name, year, endyear, subkey, key, page), headers=self.header)
                 else:
-                    print('\n Loading Error, tring another time')
-                    time.sleep(1)
+                    res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
+                                       (name, year, year, subkey, key, page), headers=self.header)
+                tree = html.fromstring(res.content)
+                tree = html.fromstring(res.content)
+                totalpage = tree.xpath('//center/div/text()')[0]
+                pages = int(re.search('共(\d+)页', totalpage).group(1))
+                records = int(re.search('(\d+)条记录', totalpage).group(1))
+                if pages <= 50:
+                    return([pages, records])
+                else:
+                    return([False, records])
             except TimeoutError:
                 print("TimeoutError, please wait for 2 seconds")
                 time.sleep(2)
+            except ConnectionError:
+                print("ConnectionError, please wait for 2 seconds")
+                time.sleep(2)
+            except ConnectionAbortedError:
+                print("ConnectionAbortedError, please wait for 2 seconds")
+                time.sleep(2)
 
-        author = tree.xpath('//p[@class="author"]/a/text()')
-        author_s = tree.xpath('//p[@class="author"]/span/a/text()')
-        author = author + author_s
+    def get_alltxt(self, xpath_out):
+        outa = []
+        for ne in range(len(xpath_out)):
+            el = xpath_out[ne].xpath('text()')
+            if el:
+                el = el[0]
+            else:
+                el = ""
+            outa.append(el)
+        return(outa)
 
-        if author:
-            author = [at.strip() for at in author]
-            organ = tree.xpath('//p[@class="organ"]/a/text()')
-            organ_s = tree.xpath('//p[@class="organ"]/span/a/text()')
-            organ = organ + organ_s
-            if not organ:
-                organ = ""
-
+    def get_info(self, name="微生", year="2012", endyear=False, page="1", key="0", subkey=""):
+        time.sleep(1 + random.randint(1, 4))
+        search_id = '_'.join([name, year, page, key, subkey])
+        while True:
             try:
-                info = tree.xpath('//p[@class="abstrack"]/text()')[1].strip()
-                info = re.sub('[\n\r]+', '; ', info)
-            except IndexError:
-                info = ""
-            cinfo = info
-
-            info = re.sub("．", ".", info)
-            info = re.split("通[讯|信]作者", info.strip())
-
-            def findname(tar):
-                for n in author:
-                    if re.search(n, tar):
-                        return(n)
-
-            f_author = author[0].strip()
-            if findname(info[0]):
-                f_author = findname(info[0])
-
-            m_author = '无法判断'
-            try:
-                if findname(info[1]):
-                    m_author = findname(info[1])
-            except IndexError:
-                pass
-
-            f_email = '无'
-            if re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[0]):
-                f_email = re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[0]).group()
-                f_email = f_email.strip('\.|．')
-
-            m_email = '无'
-            try:
-                if re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[1]):
-                    m_email = re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', info[1]).group()
-                    m_email = m_email.strip('\.|．')
-            except IndexError:
-                pass
-
-            f_tel = '无'
-            if re.search('Tel：([0-9\-—]+)', info[0]):
-                f_tel = re.search('Tel：([0-9\-—]+)', info[0]).group(1)
-                f_tel = f_tel.strip('\.|．|\-')
-
-            m_tel = '无'
-            try:
-                if re.search('Tel：([0-9\-—]+)', info[1]):
-                    m_tel = re.search('Tel：([0-9\-—]+)', info[1]).group(1)
-                    m_tel = m_tel.strip('\.|．|\-')
-            except IndexError:
-                pass
-
-            return([f_email, f_author, m_email, m_author, ';'.join(author), cinfo, ';'.join(organ), title, f_tel, m_tel])
-        else:
-            return(False)
-
-            # print(res.content)
-
-    def formkeyword(self, table):
-        keyword = []
-        with open(table, 'r',encoding='utf-8') as infile:
-            for line in enumerate(infile):
-                li=re.sub('\?','',line[1])
-                li = re.split('\t', li.strip('\n'))
-                li=[l.strip() for l in li]
-                if line[0] == 0:
-                    for w in enumerate(li):
-                        if w[1] == '负责人':
-                            an = w[0]
-                        elif w[1] == '依托单位':
-                            on = w[0]
-                        elif w[1] == '邮箱':
-                            en = w[0]
+                if endyear:
+                    res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
+                                       (name, year, endyear, subkey, key, page), headers=self.header)
                 else:
-                    keyword.append(['\t'.join(li[0:11]), li[an], 'A%3D' + li[an], 'A%3D' +
-                                    li[an] + '[*]' + 'S%3D' + li[on], li[en]])
-        return(keyword)
+                    res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
+                                       (name, year, year, subkey, key, page), headers=self.header)
+                tree = html.fromstring(res.content)
 
-    def main(self, table, maxtry=5):
-        outpath = table + '_search_for_email.xls'
+                out1 = tree.xpath('//td[@colspan="6"]')
+                out1 = self.get_alltxt(out1)
+                #out1.remove(' ')
+                del out1[0]
+                out1 = np.array(out1).reshape(int(len(out1) / 2), 2, order='C')
+
+                out2 = tree.xpath('//tr[@style="background:#EFEFEF;"]/td')
+                out2 = self.get_alltxt(out2)
+                ln = int(len(out2) / 7)
+                out2 = np.array(out2).reshape(ln, 7, order='C')
+                ap = np.array(ln * [search_id])
+                ap.shape = ln, 1
+                out = np.append(out1, out2, axis=1)
+                out = np.append(out, ap, axis=1)
+                out = out.tolist()
+                return(out)
+            except TimeoutError:
+                print("TimeoutError, please wait for 2 seconds")
+                time.sleep(2)
+            except ConnectionError:
+                print("ConnectionError, please wait for 2 seconds")
+                time.sleep(2)
+            except ConnectionAbortedError:
+                print("ConnectionAbortedError, please wait for 2 seconds")
+                time.sleep(2)
+
+    def main(self, name, year_range=(2012, 2018)):
+        outpath = name + '_project_leader.xls'
         try:
             with open(outpath, 'r', encoding='utf-8') as prefile:
                 prepmid = []
@@ -156,82 +132,66 @@ class letpub(object):
         except FileNotFoundError:
             prepmid = []
 
-        pre_table = self.formkeyword(table=table)
         with open(outpath, 'a', encoding='utf-8') as outff:
             if not prepmid:
-                outff.write('跟进助理\t备注\t项目名\t负责人\t职称\t依托单位\t经费\t起始时间\t领域\t电话\t邮箱\t维普邮箱\t文章标题\t详细信息\t维普机构\t电话\t查询方式\t搜索关键词\n')
-            print('Start to get author information......')
-            d = 0
-            for origin, name, short_key, long_key, pre_email in pre_table:
-                d = d + 1
-                perctg = 100 * d / len(pre_table)
-                done = int(50 * d / len(pre_table))
-                sys.stdout.write("\r[%s%s] %.3f%%" % ('█' * done, ' ' * (50 - done), perctg))
-                sys.stdout.flush()
-                if long_key not in prepmid and name:
-                    finded_email = '无法找到邮箱\t\t\t\t\t'
-                    if pre_email:
-                        finded_email = pre_email + '\t\t\t\t\t'
-                    else:
-                        page = 0
-                        totalpage = 1
-                        ifound = True
-                        while page < totalpage and ifound and page < maxtry:
-                            id_set = []
-                            page += 1
-                            print("\n Searching in page%s according to name and organization" % (page))
-                            #sys.stdout.flush()
-                            finded_id = self.get_id(page=page, keyword=long_key)
-                            if finded_id:
-                                id_set = finded_id[1]
-                                totalpage = finded_id[0]
-                            ifound = finded_id
-
-                            for eachid in id_set:
-                                finded_info = self.get_info(id=eachid)
-                                if finded_info:
-                                    if not finded_info[0] == '无' and name == finded_info[1]:
-                                        finded_email = finded_info[0]+'\t'+finded_info[7] + '\t' + finded_info[5] + \
-                                            '\t' + finded_info[6] + '\t' + finded_info[8] + '\t' + '根据姓名和单位查找'
-                                        break
-                                    elif not finded_info[2] == '无' and name == finded_info[3]:
-                                        finded_email = finded_info[2]+'\t'+finded_info[7] + '\t' + finded_info[5] + \
-                                            '\t' + finded_info[6] + '\t' + finded_info[9] + '\t' + '根据姓名和单位查找'
-                                        break
-                            if not finded_email == '无法找到邮箱\t\t\t\t\t':
-                                break
-
-                        if finded_email == '无法找到邮箱\t\t\t\t\t':
-                            page = 0
-                            totalpage = 1
-                            ifound = True
-                            while page < totalpage and ifound and page < maxtry:
-                                id_set = []
-                                page += 1
-                                print("\n Searching in page%s according to  name" % (page))
-                                #sys.stdout.flush()
-                                finded_id = self.get_id(page=page, keyword=short_key)
-                                if finded_id:
-                                    id_set = id_set + finded_id[1]
-                                    totalpage = finded_id[0]
-                                ifound = finded_id
-
-                                for eachid in id_set:
-                                    finded_info = self.get_info(id=eachid)
-                                    if finded_info:
-                                        if not finded_info[0] == '无' and name == finded_info[1]:
-                                            finded_email = finded_info[0]+'\t'+finded_info[7] + '\t' + finded_info[5] + \
-                                                '\t' + finded_info[6] + '\t' + finded_info[8] + '\t' + '只根据名字查找'
-                                            break
-                                        elif not finded_info[2] == '无' and name == finded_info[3]:
-                                            finded_email = finded_info[2]+'\t'+finded_info[7] + '\t' + finded_info[5] + \
-                                                '\t' + finded_info[6] + '\t' + finded_info[9] + '\t' + '只根据名字查找'
-                                            break
-                                if not finded_email == '无法找到邮箱\t\t\t\t\t':
-                                    break
-                    outff.write('%s\t%s\t%s\n' % (origin, finded_email, long_key))
+                outff.write('题目\t学科分类\t负责人\t单位\t金额(万)\t项目编号\t项目类型\t所属学部\t批准年份\t查询编码\n')
+            print('Start to get leader information......')
+            d = len(prepmid)
+            td = self.checkid(search_id='%s_%s_1_0_' % (name, year_range[0]), endyear=year_range[1])[1]
+            for year in range(year_range[0], year_range[1] + 1):
+                isok = self.checkid(search_id='%s_%s_1_0_' % (name, year))[0]
+                if isok:
+                    if isok > 0:
+                        for page in range(1, isok + 1):
+                            if '%s_%s_%s_0_' % (name, str(year), str(page)) not in prepmid:
+                                found_info = self.get_info(name=name, year=str(year), page=str(page))
+                                for rd in found_info:
+                                    fd = '\t'.join(rd)
+                                    outff.write(fd + '\n')
+                                d = d + len(found_info)
+                                perctg = 100 * d / td
+                                done = int(50 * d / td)
+                                sys.stdout.write("\r[%s%s] %.3f%%" % ('█' * done, ' ' * (50 - done), perctg))
+                                sys.stdout.flush()
+                else:
+                    for key in self.keys[0]:
+                        is_class = self.checkid(search_id='%s_%s_1_%s_' % (name, year, key))[0]
+                        if is_class:
+                            if is_class > 0:
+                                for page in range(1, is_class + 1):
+                                    if '%s_%s_%s_%s_' % (name, str(year), str(page), key) not in prepmid:
+                                        found_info = self.get_info(name=name, year=str(year), page=str(page), key=key)
+                                        for rd in found_info:
+                                            fd = '\t'.join(rd)
+                                            outff.write(fd + '\n')
+                                        d = d + len(found_info)
+                                        perctg = 100 * d / td
+                                        done = int(50 * d / td)
+                                        sys.stdout.write("\r[%s%s] %.3f%%" % ('█' * done, ' ' * (50 - done), perctg))
+                                        sys.stdout.flush()
+                        else:
+                            for subkey in self.keys[1]:
+                                is_subclass = self.checkid(search_id='%s_%s_1_%s_%s' % (name, year, key, subkey))[0]
+                                if is_subclass:
+                                    if is_subclass > 0:
+                                        for page in range(1, is_subclass + 1):
+                                            if '%s_%s_%s_%s_%s' % (name, str(year), str(page), key, subkey) not in prepmid:
+                                                found_info = self.get_info(
+                                                    name=name, year=str(year), page=str(page), key=key, subkey=subkey)
+                                                for rd in found_info:
+                                                    fd = '\t'.join(rd)
+                                                    outff.write(fd + '\n')
+                                                d = d + len(found_info)
+                                                perctg = 100 * d / td
+                                                done = int(50 * d / td)
+                                                sys.stdout.write("\r[%s%s] %.3f%%" %
+                                                                 ('█' * done, ' ' * (50 - done), perctg))
+                                                sys.stdout.flush()
+                                else:
+                                    outff.write('Total page out of range, please check searching id: %s_%s_1_%s_%s' % (
+                                        name, year, key, subkey))
 
 
 if __name__ == '__main__':
-    page = weipu(header='header.txt')
-    page.main(table=sys.argv[1])
+    myhub = letpub(header='header_for_letpub.txt')
+    myhub.main(name=sys.argv[1])

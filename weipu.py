@@ -21,6 +21,7 @@ class weipu(object):
         self.headforget['User-Agent'] = self.header['User-Agent']
         self.headforget['Referer'] = self.header['Referer']
         self.headforget['Connection'] = 'close'
+        print(self.header)
         f_page = requests.get(
             url='http://qikan.cqvip.com/zk/search.aspx?from=article_detail&key=U%3D' + self.keyword, headers=self.header)
         tree = html.fromstring(f_page.content)
@@ -173,4 +174,5 @@ class weipu(object):
 
 if __name__ == '__main__':
     page = weipu(keyword=sys.argv[1], header='header.txt')
+    print(page.header)
     page.main()

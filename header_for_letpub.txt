@@ -1,0 +1,9 @@
+Host: www.letpub.com.cn
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate
+Referer: http://www.letpub.com.cn/index.php?page=grant&name=%E5%BE%AE%E7%94%9F&person=&no=&company=&startTime=2018&endTime=2018&money1=&money2=&subcategory=%E9%9D%A2%E4%B8%8A%E9%A1%B9%E7%9B%AE&addcomment_s1=146&addcomment_s2=0&addcomment_s3=0&currentpage=2
+Cookie: PHPSESSID=8l1v2vaek72u5drhdmkvkipoi1; _ga=GA1.3.261411203.1538892715; _gid=GA1.3.1144241794.1538892715; __utma=189275190.261411203.1538892715.1538892715.1538894759.2; __utmc=189275190; __utmz=189275190.1538892715.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmb=189275190.12.10.1538894759; _gat=1; __utmt=1
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
