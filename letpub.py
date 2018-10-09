@@ -23,51 +23,45 @@ class letpub(object):
         self.headforget['User-Agent'] = self.header['User-Agent']
         #self.headforget['Referer'] = self.header['Referer']
         self.headforget['Connection'] = 'close'
-        self.headforget['Upgrade-Insecure-Requests']='1'
-        self.proxy=None
-        self.ipchanger=self.changeip()
+        self.headforget['Upgrade-Insecure-Requests'] = '1'
+        option = webdriver.FirefoxOptions()
+        option.set_headless()
+        self.driver = webdriver.Firefox(firefox_options=option)
+        self.ipchanger = self.changeip()
+        self.proxy = self.ipchanger.__next__()
         self.keys = self.getkey()
-        
 
     def getkey(self):
-        try:
-            option=webdriver.FirefoxOptions()
-            option.set_headless()
-            driver=webdriver.Firefox(firefox_options=option)
-            driver.get('http://www.letpub.com.cn/index.php?page=grant')
-            res=driver.page_source
-            tree=html.fromstring(res)
-        finally:
-            driver.quit()
+        # self.driver.get('http://www.letpub.com.cn/index.php?page=grant')
+        res = requests.get(url="http://www.letpub.com.cn/index.php?page=grant", headers=self.header, proxies=self.proxy)
+        #res = self.driver.page_source
+        tree = html.fromstring(res.content)
         key = tree.xpath('//select[@name="addcomment_s1"]/option/@value')
         subkey = tree.xpath('//select[@name="subcategory"]/option/@value')
+        # print(res.content)
         key.remove("0")
         subkey.remove("")
         return([key, subkey])
 
     def changeip(self):
         while True:
-            option1=webdriver.FirefoxOptions()
-            option1.set_headless()
-            driver1=webdriver.Firefox(firefox_options=option1)
-            driver1.get('http://www.goubanjia.com/')
-            res=driver1.page_source
-            tree=html.fromstring(res)
-            ipnode=tree.xpath("//td[@class='ip']")
-            ips=[]
+            self.driver.get('http://www.goubanjia.com/')
+            res = self.driver.page_source
+            tree = html.fromstring(res)
+            ipnode = tree.xpath("//td[@class='ip']")
+            ips = []
             for ipdn in range(len(ipnode)):
-                ip=ipnode[ipdn].xpath("*[not(@style='display:none;' or @style='display: none;')]/text()")
-                ip="".join(ip[0:-1])+":"+ip[-1]
+                ip = ipnode[ipdn].xpath("*[not(@style='display:none;' or @style='display: none;')]/text()")
+                ip = "".join(ip[0:-1]) + ":" + ip[-1]
                 ips.append(ip)
-            #ip2=tree.xpath("//td[@class='ip']//text()")
-            ln=len(ips)
-            tp=np.array(tree.xpath("//tbody/tr/td[not(@class='ip')]/a/text()")).reshape(ln,6)
+            # ip2=tree.xpath("//td[@class='ip']//text()")
+            ln = len(ips)
+            tp = np.array(tree.xpath("//tbody/tr/td[not(@class='ip')]/a/text()")).reshape(ln, 6)
             for n in range(ln):
-                if tp[n,0]=='高匿' and tp[n,1]=='http':
-                    ipout={}
-                    ipout['http']="http://"+ips[n]
+                if tp[n, 0] == '高匿' and tp[n, 1] == 'http':
+                    ipout = {}
+                    ipout['http'] = "http://" + ips[n]
                     yield(ipout)
-
 
     def formdict(self, file, sep):
         d = {}
@@ -81,17 +75,17 @@ class letpub(object):
     def checkid(self, search_id, endyear=False):
         time.sleep(3 + random.randint(4, 10))
         name, year, page, key, subkey = re.split('_', search_id)
-        tm=0
+        tm = 0
         while True:
-            tm+=1
-            if tm>20:
+            tm += 1
+            if tm > 20:
                 print("Max retry, please check your code")
                 break
             try:
                 if not endyear:
-                    endyear=year
+                    endyear = year
                 res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                    (name, year, endyear, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                                   (name, year, endyear, subkey, key, page), headers=self.headforget, proxies=self.proxy)
                 tree = html.fromstring(res.content)
                 totalpage = tree.xpath('//center/div/text()')[0]
                 break
@@ -102,15 +96,20 @@ class letpub(object):
                 print("ConnectionError, please wait for 3 seconds")
                 time.sleep(3)
             except IndexError:
-                self.proxy=self.ipchanger.__next__()
+                self.proxy = self.ipchanger.__next__()
                 print("Changed ip location to %s" % (self.proxy['http']))
 
         pages = int(re.search('共(\d+)页', totalpage).group(1))
         records = int(re.search('(\d+)条记录', totalpage).group(1))
-        if pages <= 50:
+        if 0 < pages <= 50:
+            print([pages, records])
             return([pages, records])
-        else:
+        elif pages > 50:
+            print([False, records])
             return([False, records])
+        else:
+            print([-1, records])
+            return([-1, records])
 
     def get_alltxt(self, xpath_out):
         outa = []
@@ -123,24 +122,23 @@ class letpub(object):
             outa.append(el)
         return(outa)
 
-    def get_info(self,name="微生", year="2012", endyear=False, page="1", key="0", subkey=""):
+    def get_info(self, name="微生", year="2012", endyear=False, page="1", key="0", subkey=""):
         time.sleep(3 + random.randint(4, 10))
         search_id = '_'.join([name, year, page, key, subkey])
-        tm=0
+        tm = 0
         while True:
-            tm+=1
-            if tm>20:
+            tm += 1
+            if tm > 20:
                 print("Max retry, please check your code")
                 break
             try:
                 if not endyear:
-                    endyear=year
+                    endyear = year
                 res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                    (name, year, endyear, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                                   (name, year, endyear, subkey, key, page), headers=self.headforget, proxies=self.proxy)
                 tree = html.fromstring(res.content)
                 out1 = tree.xpath('//td[@colspan="6"]')
                 out1 = self.get_alltxt(out1)
-                #out1.remove(' ')
                 del out1[0]
                 break
             except TimeoutError:
@@ -150,7 +148,7 @@ class letpub(object):
                 print("ConnectionError, please wait for 2 seconds")
                 time.sleep(3)
             except IndexError:
-                self.proxy=self.ipchanger.__next__()
+                self.proxy = self.ipchanger.__next__()
                 print("Changed ip location to %s" % (self.proxy['http']))
 
         out1 = np.array(out1).reshape(int(len(out1) / 2), 2, order='C')
@@ -163,6 +161,7 @@ class letpub(object):
         out = np.append(out1, out2, axis=1)
         out = np.append(out, ap, axis=1)
         out = out.tolist()
+        print(out)
         return(out)
 
     def main(self, name, year_range=(2012, 2018)):
@@ -215,26 +214,29 @@ class letpub(object):
                         else:
                             for subkey in self.keys[1]:
                                 is_subclass = self.checkid(search_id='%s_%s_1_%s_%s' % (name, year, key, subkey))[0]
-                                if is_subclass:
-                                    if is_subclass > 0:
-                                        for page in range(1, is_subclass + 1):
-                                            if '%s_%s_%s_%s_%s' % (name, str(year), str(page), key, subkey) not in prepmid:
-                                                found_info = self.get_info(
-                                                    name=name, year=str(year), page=str(page), key=key, subkey=subkey)
-                                                for rd in found_info:
-                                                    fd = '\t'.join(rd)
-                                                    outff.write(fd + '\n')
-                                                d = d + len(found_info)
-                                                perctg = 100 * d / td
-                                                done = int(50 * d / td)
-                                                sys.stdout.write("\r[%s%s] %.3f%%" %
-                                                                 ('█' * done, ' ' * (50 - done), perctg))
-                                                sys.stdout.flush()
-                                else:
-                                    outff.write('Total page out of range, please check searching id: %s_%s_1_%s_%s' % (
+                                if not is_subclass:
+                                    is_subclass = 50
+                                    outff.write('Total page out of range, please check searching id:\t%s_%s__%s_%s' % (
                                         name, year, key, subkey))
+                                if is_subclass > 0:
+                                    for page in range(1, is_subclass + 1):
+                                        if '%s_%s_%s_%s_%s' % (name, str(year), str(page), key, subkey) not in prepmid:
+                                            found_info = self.get_info(
+                                                name=name, year=str(year), page=str(page), key=key, subkey=subkey)
+                                            for rd in found_info:
+                                                fd = '\t'.join(rd)
+                                                outff.write(fd + '\n')
+                                            d = d + len(found_info)
+                                            perctg = 100 * d / td
+                                            done = int(50 * d / td)
+                                            sys.stdout.write("\r[%s%s] %.3f%%" %
+                                                             ('█' * done, ' ' * (50 - done), perctg))
+                                            sys.stdout.flush()
 
 
 if __name__ == '__main__':
     myhub = letpub(header='header_for_letpub.txt')
-    myhub.main(name=sys.argv[1])
+    try:
+        myhub.main(name=sys.argv[1])
+    finally:
+        myhub.driver.quit()

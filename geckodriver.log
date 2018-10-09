@@ -598,3 +598,181 @@ JavaScript error: http://www.letpub.com.cn/index.php?page=grant, line 503: Refer
 [Child 5608, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
 [Child 6780, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
 [Parent 2316, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+1539074371066	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.rVYXttsCIfhv"
+*** You are running in headless mode.
+1539074372961	Marionette	INFO	Listening on port 46692
+1539074372999	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539074373042	Marionette	DEBUG	[2147483649] Frame script loaded
+1539074373044	Marionette	DEBUG	[2147483649] Frame script registered
+1539074373070	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539074374000	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539074374320	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539074374508	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539075544010	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.q1CviNbsuBxv"
+*** You are running in headless mode.
+1539075545623	Marionette	INFO	Listening on port 39188
+1539075545720	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539075545762	Marionette	DEBUG	[2147483649] Frame script loaded
+1539075545763	Marionette	DEBUG	[2147483649] Frame script registered
+1539075545777	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539075546705	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539075546752	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539075546971	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539075576654	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.w0Em2vDW0kXz"
+*** You are running in headless mode.
+1539075578421	Marionette	INFO	Listening on port 45365
+1539075578491	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539075578542	Marionette	DEBUG	[2147483649] Frame script loaded
+1539075578550	Marionette	DEBUG	[2147483649] Frame script registered
+1539075578593	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539075580273	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539075580361	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539075580496	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539075667100	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.80ftbHsqr2Pr"
+*** You are running in headless mode.
+1539075668941	Marionette	INFO	Listening on port 43101
+1539075669020	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539075669068	Marionette	DEBUG	[2147483649] Frame script loaded
+1539075669069	Marionette	DEBUG	[2147483649] Frame script registered
+1539075669088	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539075669995	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539075670063	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539075670204	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539075717013	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.HG8W36mDTYcs"
+*** You are running in headless mode.
+1539075718704	Marionette	INFO	Listening on port 34837
+1539075718733	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539075718783	Marionette	DEBUG	[2147483649] Frame script loaded
+1539075718784	Marionette	DEBUG	[2147483649] Frame script registered
+1539075718810	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539075720507	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539075720656	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539075720733	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539075738631	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.5YZM5U6pZhNm"
+*** You are running in headless mode.
+1539075740431	Marionette	INFO	Listening on port 37344
+1539075740443	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539075740485	Marionette	DEBUG	[2147483649] Frame script loaded
+1539075740486	Marionette	DEBUG	[2147483649] Frame script registered
+1539075740511	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539075741766	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539075741862	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539075741938	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539075986550	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.PIHgFdYXVjZl"
+*** You are running in headless mode.
+1539075988324	Marionette	INFO	Listening on port 41101
+1539075988376	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539075988437	Marionette	DEBUG	[2147483649] Frame script loaded
+1539075988439	Marionette	DEBUG	[2147483649] Frame script registered
+1539075988471	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539075989364	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539075989423	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539075989560	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539076055027	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.tQEtJSGQRhbR"
+*** You are running in headless mode.
+1539076056837	Marionette	INFO	Listening on port 35332
+1539076056939	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539076056982	Marionette	DEBUG	[2147483649] Frame script loaded
+1539076056983	Marionette	DEBUG	[2147483649] Frame script registered
+1539076056996	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539076058328	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539076058367	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539076058522	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539076339133	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.taqz1efP0xw6"
+*** You are running in headless mode.
+1539076340970	Marionette	INFO	Listening on port 41755
+1539076341043	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539076341087	Marionette	DEBUG	[2147483649] Frame script loaded
+1539076341088	Marionette	DEBUG	[2147483649] Frame script registered
+1539076396264	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.22uIFbT3mpLH"
+*** You are running in headless mode.
+1539076397808	Marionette	INFO	Listening on port 46216
+1539076397870	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539076397912	Marionette	DEBUG	[2147483649] Frame script loaded
+1539076397914	Marionette	DEBUG	[2147483649] Frame script registered
+1539076423538	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.tSkbakYgD0xr"
+*** You are running in headless mode.
+1539076425219	Marionette	INFO	Listening on port 41462
+1539076425258	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539076425301	Marionette	DEBUG	[2147483649] Frame script loaded
+1539076425303	Marionette	DEBUG	[2147483649] Frame script registered
+1539076535746	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vdYkk2oLJtWK"
+*** You are running in headless mode.
+1539076537667	Marionette	INFO	Listening on port 39180
+1539076537754	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539076537797	Marionette	DEBUG	[2147483649] Frame script loaded
+1539076537799	Marionette	DEBUG	[2147483649] Frame script registered
+1539076537826	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539076539474	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539076539564	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539076539702	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539076695396	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.uEVKticz4TjC"
+*** You are running in headless mode.
+1539076696966	Marionette	INFO	Listening on port 37094
+1539076697022	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539076697072	Marionette	DEBUG	[2147483649] Frame script loaded
+1539076697084	Marionette	DEBUG	[2147483649] Frame script registered
+1539076777125	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.8KldffWQaOgx"
+*** You are running in headless mode.
+1539076779010	Marionette	INFO	Listening on port 43109
+1539076779046	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539076779090	Marionette	DEBUG	[2147483649] Frame script loaded
+1539076779093	Marionette	DEBUG	[2147483649] Frame script registered
+1539076779112	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539076779508	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539076779861	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539076794870	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539076948259	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.jTLzQP9Db5qU"
+*** You are running in headless mode.
+1539076949823	Marionette	INFO	Listening on port 37136
+1539076949888	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539076949935	Marionette	DEBUG	[2147483649] Frame script loaded
+1539076949940	Marionette	DEBUG	[2147483649] Frame script registered
+1539076949961	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539076950129	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539076950454	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539076950542	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539077532323	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.rbLwCOzXVezd"
+*** You are running in headless mode.
+1539077533798	Marionette	INFO	Listening on port 45657
+1539077533840	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539077533884	Marionette	DEBUG	[2147483649] Frame script loaded
+1539077533886	Marionette	DEBUG	[2147483649] Frame script registered
+1539077533900	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539077534034	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539077534415	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539077534507	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539077865941	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.6noJh6tCHhW2"
+*** You are running in headless mode.
+1539077868000	Marionette	INFO	Listening on port 38334
+1539077868075	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539077868139	Marionette	DEBUG	[2147483649] Frame script loaded
+1539077868140	Marionette	DEBUG	[2147483649] Frame script registered
+1539077868169	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539077868301	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539077868734	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539077893743	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539077912839	Marionette	INFO	Stopped listening on port 38334
+[Parent 42821, Gecko_IOThread] WARNING: pipe error (65): 连接被对方重设: file /build/firefox-E5azaL/firefox-62.0.3+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1539078364894	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.OcIObBzpqkRU"
+*** You are running in headless mode.
+1539078366534	Marionette	INFO	Listening on port 33594
+1539078366601	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539078366644	Marionette	DEBUG	[2147483649] Frame script loaded
+1539078366652	Marionette	DEBUG	[2147483649] Frame script registered
+1539078366670	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539078366785	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539078367167	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539078367253	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539078379358	Marionette	INFO	Stopped listening on port 33594
+[Parent 43156, Gecko_IOThread] WARNING: pipe error (42): 连接被对方重设: file /build/firefox-E5azaL/firefox-62.0.3+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1539078615607	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.BskmVT9jSeZl"
+*** You are running in headless mode.
+1539078617264	Marionette	INFO	Listening on port 44360
+1539078617327	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539078617378	Marionette	DEBUG	[2147483649] Frame script loaded
+1539078617389	Marionette	DEBUG	[2147483649] Frame script registered
+1539078617411	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539078617531	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539078618040	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539078618066	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/

@@ -1,9 +1,9 @@
-Host: www.goubanjia.com
-User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0
+Host: www.letpub.com.cn
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
 Accept-Encoding: gzip, deflate
-Cookie: JSESSIONID=47CAE372D72151C018322E6442BF739C; UM_distinctid=16658482452bb-0a2ed9dc2e7dd88-143c7340-ff000-1665848245415b; CNZZDATA1253707717=1187120276-1539077977-%7C1539127103; hibext_instdsigdipv2=1
+Cookie: _ga=GA1.3.261411203.1538892715; _gid=GA1.3.1144241794.1538892715; __utma=189275190.261411203.1538892715.1538992411.1539074248.9; __utmz=189275190.1538892715.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); PHPSESSID=8s3dr5f91uk1hsjfhutbvd1hh7; _gat=1; __utmb=189275190.4.10.1539074248; __utmc=189275190; __utmt=1
 Connection: keep-alive
 Upgrade-Insecure-Requests: 1
 Cache-Control: max-age=0
