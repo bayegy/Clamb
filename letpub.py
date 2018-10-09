@@ -8,7 +8,7 @@ import time
 import math
 import random
 import numpy as np
-
+import urllib3
 
 class letpub(object):
     """docstring for weipu"""
@@ -21,10 +21,12 @@ class letpub(object):
         self.headforget['User-Agent'] = self.header['User-Agent']
         #self.headforget['Referer'] = self.header['Referer']
         self.headforget['Connection'] = 'close'
+        self.proxy={"http":"http://120.77.170.112:80","https":"https://120.77.170.112:80"}
         self.keys = self.getkey()
+        
 
     def getkey(self):
-        res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant')
+        res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant',headers=self.headforget,proxies=self.proxy)
         tree = html.fromstring(res.content)
         key = tree.xpath('//select[@name="addcomment_s1"]/option/@value')
         subkey = tree.xpath('//select[@name="subcategory"]/option/@value')
@@ -42,34 +44,40 @@ class letpub(object):
         return(d)
 
     def checkid(self, search_id, endyear=False):
-        time.sleep(1 + random.randint(1, 4))
+        time.sleep(3 + random.randint(4, 10))
         name, year, page, key, subkey = re.split('_', search_id)
+        tm=0
         while True:
+            tm+=1
+            if tm>20:
+                print("Max retry, please check your code")
+                break
             try:
                 if endyear:
                     res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, endyear, subkey, key, page), headers=self.header)
+                                       (name, year, endyear, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                    break
                 else:
                     res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, year, subkey, key, page), headers=self.header)
-                tree = html.fromstring(res.content)
-                tree = html.fromstring(res.content)
-                totalpage = tree.xpath('//center/div/text()')[0]
-                pages = int(re.search('共(\d+)页', totalpage).group(1))
-                records = int(re.search('(\d+)条记录', totalpage).group(1))
-                if pages <= 50:
-                    return([pages, records])
-                else:
-                    return([False, records])
+                                       (name, year, year, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                    break
             except TimeoutError:
                 print("TimeoutError, please wait for 2 seconds")
-                time.sleep(2)
+                time.sleep(3)
             except ConnectionError:
                 print("ConnectionError, please wait for 2 seconds")
-                time.sleep(2)
-            except ConnectionAbortedError:
+                time.sleep(3)
+            except:
                 print("ConnectionAbortedError, please wait for 2 seconds")
-                time.sleep(2)
+                time.sleep(3)
+        tree = html.fromstring(res.content)
+        totalpage = tree.xpath('//center/div/text()')[0]
+        pages = int(re.search('共(\d+)页', totalpage).group(1))
+        records = int(re.search('(\d+)条记录', totalpage).group(1))
+        if pages <= 50:
+            return([pages, records])
+        else:
+            return([False, records])
 
     def get_alltxt(self, xpath_out):
         outa = []
@@ -82,44 +90,49 @@ class letpub(object):
             outa.append(el)
         return(outa)
 
-    def get_info(self, name="微生", year="2012", endyear=False, page="1", key="0", subkey=""):
-        time.sleep(1 + random.randint(1, 4))
+    def get_info(self,name="微生", year="2012", endyear=False, page="1", key="0", subkey=""):
+        time.sleep(3 + random.randint(4, 10))
         search_id = '_'.join([name, year, page, key, subkey])
+        tm=0
         while True:
+            tm+=1
+            if tm>20:
+                print("Max retry, please check your code")
+                break
             try:
                 if endyear:
                     res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, endyear, subkey, key, page), headers=self.header)
+                                       (name, year, endyear, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                    break
                 else:
                     res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, year, subkey, key, page), headers=self.header)
-                tree = html.fromstring(res.content)
-
-                out1 = tree.xpath('//td[@colspan="6"]')
-                out1 = self.get_alltxt(out1)
-                #out1.remove(' ')
-                del out1[0]
-                out1 = np.array(out1).reshape(int(len(out1) / 2), 2, order='C')
-
-                out2 = tree.xpath('//tr[@style="background:#EFEFEF;"]/td')
-                out2 = self.get_alltxt(out2)
-                ln = int(len(out2) / 7)
-                out2 = np.array(out2).reshape(ln, 7, order='C')
-                ap = np.array(ln * [search_id])
-                ap.shape = ln, 1
-                out = np.append(out1, out2, axis=1)
-                out = np.append(out, ap, axis=1)
-                out = out.tolist()
-                return(out)
+                                       (name, year, year, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                    break
             except TimeoutError:
                 print("TimeoutError, please wait for 2 seconds")
-                time.sleep(2)
+                time.sleep(3)
             except ConnectionError:
                 print("ConnectionError, please wait for 2 seconds")
-                time.sleep(2)
-            except ConnectionAbortedError:
+                time.sleep(3)
+            except:
                 print("ConnectionAbortedError, please wait for 2 seconds")
-                time.sleep(2)
+                time.sleep(3)
+        tree = html.fromstring(res.content)
+        out1 = tree.xpath('//td[@colspan="6"]')
+        out1 = self.get_alltxt(out1)
+        #out1.remove(' ')
+        del out1[0]
+        out1 = np.array(out1).reshape(int(len(out1) / 2), 2, order='C')
+        out2 = tree.xpath('//tr[@style="background:#EFEFEF;"]/td')
+        out2 = self.get_alltxt(out2)
+        ln = int(len(out2) / 7)
+        out2 = np.array(out2).reshape(ln, 7, order='C')
+        ap = np.array(ln * [search_id])
+        ap.shape = ln, 1
+        out = np.append(out1, out2, axis=1)
+        out = np.append(out, ap, axis=1)
+        out = out.tolist()
+        return(out)
 
     def main(self, name, year_range=(2012, 2018)):
         outpath = name + '_project_leader.xls'
