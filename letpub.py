@@ -95,7 +95,7 @@ class letpub(object):
             except ConnectionError:
                 print("ConnectionError, please wait for 3 seconds")
                 time.sleep(3)
-            except IndexError:
+            except:
                 self.proxy = self.ipchanger.__next__()
                 print("Changed ip location to %s" % (self.proxy['http']))
 
@@ -147,7 +147,7 @@ class letpub(object):
             except ConnectionError:
                 print("ConnectionError, please wait for 2 seconds")
                 time.sleep(3)
-            except IndexError:
+            except:
                 self.proxy = self.ipchanger.__next__()
                 print("Changed ip location to %s" % (self.proxy['http']))
 
