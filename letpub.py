@@ -21,12 +21,13 @@ class letpub(object):
         self.headforget['User-Agent'] = self.header['User-Agent']
         #self.headforget['Referer'] = self.header['Referer']
         self.headforget['Connection'] = 'close'
+        self.headforget['Upgrade-Insecure-Requests']='1'
         self.proxy={"http":"http://120.77.170.112:80","https":"https://120.77.170.112:80"}
         self.keys = self.getkey()
         
 
     def getkey(self):
-        res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant',headers=self.headforget,proxies=self.proxy)
+        res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant',headers=self.headforget)
         tree = html.fromstring(res.content)
         key = tree.xpath('//select[@name="addcomment_s1"]/option/@value')
         subkey = tree.xpath('//select[@name="subcategory"]/option/@value')
@@ -44,7 +45,7 @@ class letpub(object):
         return(d)
 
     def checkid(self, search_id, endyear=False):
-        time.sleep(3 + random.randint(4, 10))
+        time.sleep(10 + random.randint(4, 10))
         name, year, page, key, subkey = re.split('_', search_id)
         tm=0
         while True:
@@ -55,11 +56,11 @@ class letpub(object):
             try:
                 if endyear:
                     res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, endyear, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                                       (name, year, endyear, subkey, key, page), headers=self.headforget)
                     break
                 else:
                     res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, year, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                                       (name, year, year, subkey, key, page), headers=self.headforget)
                     break
             except TimeoutError:
                 print("TimeoutError, please wait for 2 seconds")
@@ -91,7 +92,7 @@ class letpub(object):
         return(outa)
 
     def get_info(self,name="微生", year="2012", endyear=False, page="1", key="0", subkey=""):
-        time.sleep(3 + random.randint(4, 10))
+        time.sleep(10 + random.randint(4, 10))
         search_id = '_'.join([name, year, page, key, subkey])
         tm=0
         while True:
@@ -102,11 +103,11 @@ class letpub(object):
             try:
                 if endyear:
                     res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, endyear, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                                       (name, year, endyear, subkey, key, page), headers=self.headforget)
                     break
                 else:
                     res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, year, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                                       (name, year, year, subkey, key, page), headers=self.headforget)
                     break
             except TimeoutError:
                 print("TimeoutError, please wait for 2 seconds")
