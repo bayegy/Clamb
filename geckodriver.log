@@ -1,0 +1,600 @@
+1539139579884	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.vvtBrOVwdA2j"
+[Child 120, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 120, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539139598191	Marionette	INFO	Listening on port 50997
+1539139598691	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539139598758	Marionette	DEBUG	[4294967297] Frame script loaded
+1539139598783	Marionette	DEBUG	[4294967297] Frame script registered
+1539139599389	Marionette	DEBUG	[4294967297] Received DOM event beforeunload for about:blank
+1539139602244	Marionette	DEBUG	[4294967297] Received DOM event pagehide for about:blank
+1539139603566	Marionette	DEBUG	[4294967297] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539139604552	Marionette	DEBUG	[4294967297] Received DOM event pageshow for http://www.goubanjia.com/
+[Parent 1376, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4884, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6544, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6544, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 1376, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5892, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539139669862	Marionette	INFO	Stopped listening on port 50997
+1539139706839	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.bztGucZy5S5g"
+1539139715416	Marionette	INFO	Listening on port 51122
+1539139715426	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539139715463	Marionette	DEBUG	[6442450945] Frame script loaded
+1539139715471	Marionette	DEBUG	[6442450945] Frame script registered
+1539139715516	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539139715706	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539139716597	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539139730819	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 6344, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5204, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539140126812	Marionette	INFO	Stopped listening on port 51122
+or this session
+1539140052161	Marionette	DEBUG	[6442450945] Frame script loaded
+1539140052162	Marionette	DEBUG	[6442450945] Frame script registered
+1539140052624	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539140053646	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539140055101	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539140069329	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 5072, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5072, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 5528, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+[Child 4644, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4644, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539141032377	Marionette	INFO	Stopped listening on port 51323
+ntLoaded for http://www.goubanjia.com/
+1539140210715	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 4956, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5760, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5760, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539141030426	Marionette	INFO	Stopped listening on port 51388
+tered
+1539140791385	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539140792241	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539140792863	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539140793092	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Parent 4316, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6268, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6268, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5736, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5736, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6132, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6132, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539141029332	Marionette	INFO	Stopped listening on port 51604
+1539141112531	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.yvaM7OoFwzxr"
+1539141118135	Marionette	INFO	Listening on port 51739
+1539141118714	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539141118755	Marionette	DEBUG	[6442450945] Frame script loaded
+1539141118756	Marionette	DEBUG	[6442450945] Frame script registered
+1539141118787	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539141119938	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539141120571	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539141120848	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Parent 1952, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5744, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6920, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6920, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539142048862	Marionette	INFO	Stopped listening on port 51739
+5] Received DOM event pagehide for about:blank
+1539141189555	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539141189793	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 6564, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6564, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 3084, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6776, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6776, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539142046831	Marionette	INFO	Stopped listening on port 51801
+oubanjia.com/
+1539141308935	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 3024, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4684, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4684, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6256, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539142044175	Marionette	INFO	Stopped listening on port 51876
+Received DOM event pagehide for about:blank
+1539141961653	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539141962273	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 7648, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6312, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6312, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 2720, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 2720, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 2568, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+1539142040887	Marionette	INFO	Stopped listening on port 52070
+1539142073229	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.DxXKiOnxho7Z"
+1539142080032	Marionette	INFO	Listening on port 52158
+1539142080217	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539142080257	Marionette	DEBUG	[6442450945] Frame script loaded
+1539142080258	Marionette	DEBUG	[6442450945] Frame script registered
+1539142080288	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539142082574	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539142085332	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539142085736	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 5772, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6760, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6760, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6764, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6764, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539142364799	Marionette	INFO	Stopped listening on port 52158
+1539142368794	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.XRA7fKvaRjsH"
+1539142374102	Marionette	INFO	Listening on port 52274
+1539142375853	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539142375900	Marionette	DEBUG	[6442450945] Frame script loaded
+1539142375901	Marionette	DEBUG	[6442450945] Frame script registered
+1539142375922	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539142376662	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539142377373	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539142377822	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 6304, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 2324, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 2324, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5272, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539143082400	Marionette	INFO	Stopped listening on port 52274
+Received DOM event pagehide for about:blank
+1539142415429	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539142415676	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 6528, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 1948, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6528, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7088, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7088, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539143076088	Marionette	INFO	Stopped listening on port 52326
+anjia.com/
+1539142984063	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Parent 4848, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7540, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7540, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7240, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7240, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 4848, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6344, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6344, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539143079662	Marionette	INFO	Stopped listening on port 52466
+1539143087517	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.M5jo73CqpFPu"
+1539143093214	Marionette	INFO	Listening on port 52545
+1539143093309	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539143093350	Marionette	DEBUG	[6442450945] Frame script loaded
+1539143093360	Marionette	DEBUG	[6442450945] Frame script registered
+1539143093383	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539143094165	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539143097160	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539143098311	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 3040, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 8076, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4992, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4992, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539147048346	Marionette	INFO	Stopped listening on port 52545
+5] Received DOM event pagehide for about:blank
+1539143246832	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539143247324	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 4452, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4452, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7860, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7860, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4760, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4760, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 6788, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+1539147051772	Marionette	INFO	Stopped listening on port 52636
+Child 3076, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 7572, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+1539147045998	Marionette	INFO	Stopped listening on port 52729
+e	DEBUG	[6442450945] Frame script registered
+1539146973815	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539146976887	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539146976888	Marionette	DEBUG	[6442450945] Received DOM event unload for about:blank
+1539146977961	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539146978003	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Parent 4536, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 4536, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 2228, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7764, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7764, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 4536, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5596, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539147041307	Marionette	INFO	Stopped listening on port 53258
+1539147091541	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.qBGZH9c685VM"
+1539147097444	Marionette	INFO	Listening on port 53336
+1539147098199	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539147098258	Marionette	DEBUG	[6442450945] Frame script loaded
+1539147098259	Marionette	DEBUG	[6442450945] Frame script registered
+1539147098276	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539147099583	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539147099585	Marionette	DEBUG	[6442450945] Received DOM event unload for about:blank
+1539147100337	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539147100619	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+[Child 2740, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 2740, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromi1539147171076	Marionette	INFO	Listening on port 53400
+1539147171259	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539147171352	Marionette	DEBUG	[6442450945] Frame script loaded
+1539147171354	Marionette	DEBUG	[6442450945] Frame script registered
+1539147171394	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539147173820	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539147173821	Marionette	DEBUG	[6442450945] Received DOM event unload for about:blank
+1539147175017	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539147175096	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+1539147175407	Marionette	INFO	Stopped listening on port 53400
+1539147175448	addons.xpi	WARN	Exception running bootstrap method shutdown on activity-stream@mozilla.org: [Exception... "Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]"  nsresult: "0x80070057 (NS_ERROR_ILLEGAL_VALUE)"  location: "JS frame :: resource://activity-stream/lib/ActivityStreamPrefs.jsm :: ignoreBranch :: line 29"  data: no] Stack trace: ignoreBranch()@resource://activity-stream/lib/ActivityStreamPrefs.jsm:29
+uninit()@resource://activity-stream/lib/Store.jsm:172
+uninit()@resource://activity-stream/lib/ActivityStream.jsm:363
+uninit()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:86
+shutdown()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:194
+callBootstrapMethod()@resource://gre/modules/addons/XPIProvider.jsm:1592
+_shutdown()@resource://gre/modules/addons/XPIProvider.jsm:1728
+observe()@resource://gre/modules/AsyncShutdown.jsm:541
+GeckoDriver.prototype.quit()@driver.js:3319
+despatch()@server.js:297
+execute()@server.js:271
+onPacket/<()@server.js:246
+onPacket()@server.js:245
+_onJSONObjectReady/<()@transport.js:500
+[Child 7700, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7920, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 7920, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539147429237	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.AAd4JlT1QSZq"
+*** You are running in headless mode.
+1539147433999	Marionette	INFO	Listening on port 53494
+1539147435215	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539147435251	Marionette	DEBUG	[6442450945] Frame script loaded
+1539147435261	Marionette	DEBUG	[6442450945] Frame script registered
+1539147435285	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539147436176	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539147439231	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539147439471	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+1539147439510	Marionette	INFO	Stopped listening on port 53494
+[Parent 6496, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 3968, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 3968, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5656, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539149917895	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.Xci2RPgLTyRh"
+*** You are running in headless mode.
+1539149923152	Marionette	INFO	Listening on port 54152
+1539149923170	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539149923225	Marionette	DEBUG	[6442450945] Frame script loaded
+1539149923258	Marionette	DEBUG	[6442450945] Frame script registered
+1539149923293	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539149926217	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539149929536	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539149930888	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+1539149931387	Marionette	INFO	Stopped listening on port 54152
+[Parent 2428, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539150040674	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.inPFLI4Urhww"
+*** You are running in headless mode.
+1539150045665	Marionette	INFO	Listening on port 54224
+1539150045987	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539150046022	Marionette	DEBUG	[6442450945] Frame script loaded
+1539150046030	Marionette	DEBUG	[6442450945] Frame script registered
+1539150046053	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539150047745	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539150049413	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539150061034	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+1539150061134	Marionette	INFO	Stopped listening on port 54224
+[Child 4684, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4684, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 3968, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 3968, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 6964, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6976, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 6964, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+1539150731990	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.tkaFmfg0CusN"
+*** You are running in headless mode.
+1539150737007	Marionette	INFO	Listening on port 54384
+1539150738807	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539150738845	Marionette	DEBUG	[6442450945] Frame script loaded
+1539150738856	Marionette	DEBUG	[6442450945] Frame script registered
+1539150738881	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539150739641	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539150741754	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539150741804	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+1539150741837	Marionette	INFO	Stopped listening on port 54384
+1539150741867	addons.xpi	WARN	Exception running bootstrap method shutdown on activity-stream@mozilla.org: [Exception... "Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]"  nsresult: "0x80070057 (NS_ERROR_ILLEGAL_VALUE)"  location: "JS frame :: resource://activity-stream/lib/ActivityStreamPrefs.jsm :: ignoreBranch :: line 29"  data: no] Stack trace: ignoreBranch()@resource://activity-stream/lib/ActivityStreamPrefs.jsm:29
+uninit()@resource://activity-stream/lib/Store.jsm:172
+uninit()@resource://activity-stream/lib/ActivityStream.jsm:363
+uninit()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:86
+shutdown()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:194
+callBootstrapMethod()@resource://gre/modules/addons/XPIProvider.jsm:1592
+_shutdown()@resource://gre/modules/addons/XPIProvider.jsm:1728
+observe()@resource://gre/modules/AsyncShutdown.jsm:541
+GeckoDriver.prototype.quit()@driver.js:3319
+despatch()@server.js:297
+execute()@server.js:271
+onPacket/<()@server.js:246
+onPacket()@server.js:245
+_onJSONObjectReady/<()@transport.js:500
+[Child 7056, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 6760, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6028, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 6760, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6240, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6240, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539151606782	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.gl5p85SulpJo"
+*** You are running in headless mode.
+1539151612188	Marionette	INFO	Listening on port 54638
+1539151613070	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539151613105	Marionette	DEBUG	[6442450945] Frame script loaded
+1539151613114	Marionette	DEBUG	[6442450945] Frame script registered
+1539151613135	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539151614574	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539151616732	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539151618094	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+1539151618125	Marionette	INFO	Stopped listening on port 54638
+1539151618159	addons.xpi	WARN	Exception running bootstrap method shutdown on activity-stream@mozilla.org: [Exception... "Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]"  nsresult: "0x80070057 (NS_ERROR_ILLEGAL_VALUE)"  location: "JS frame :: resource://activity-stream/lib/ActivityStreamPrefs.jsm :: ignoreBranch :: line 29"  data: no] Stack trace: ignoreBranch()@resource://activity-stream/lib/ActivityStreamPrefs.jsm:29
+uninit()@resource://activity-stream/lib/Store.jsm:172
+uninit()@resource://activity-stream/lib/ActivityStream.jsm:363
+uninit()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:86
+shutdown()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:194
+callBootstrapMethod()@resource://gre/modules/addons/XPIProvider.jsm:1592
+_shutdown()@resource://gre/modules/addons/XPIProvider.jsm:1728
+observe()@resource://gre/modules/AsyncShutdown.jsm:541
+GeckoDriver.prototype.quit()@driver.js:3319
+despatch()@server.js:297
+execute()@server.js:271
+onPacket/<()@server.js:246
+onPacket()@server.js:245
+_onJSONObjectReady/<()@transport.js:500
+[Parent 3464, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5600, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5600, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539151684025	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.IofyqXa3A2WH"
+*** You are running in headless mode.
+1539151688813	Marionette	INFO	Listening on port 54712
+1539151689382	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539151689418	Marionette	DEBUG	[6442450945] Frame script loaded
+1539151689439	Marionette	DEBUG	[6442450945] Frame script registered
+1539151689459	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539151689918	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539151691658	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539151692134	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+1539151692177	Marionette	INFO	Stopped listening on port 54712
+1539151692206	addons.xpi	WARN	Exception running bootstrap method shutdown on activity-stream@mozilla.org: [Exception... "Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]"  nsresult: "0x80070057 (NS_ERROR_ILLEGAL_VALUE)"  location: "JS frame :: resource://activity-stream/lib/ActivityStreamPrefs.jsm :: ignoreBranch :: line 29"  data: no] Stack trace: ignoreBranch()@resource://activity-stream/lib/ActivityStreamPrefs.jsm:29
+uninit()@resource://activity-stream/lib/Store.jsm:172
+uninit()@resource://activity-stream/lib/ActivityStream.jsm:363
+uninit()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:86
+shutdown()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:194
+callBootstrapMethod()@resource://gre/modules/addons/XPIProvider.jsm:1592
+_shutdown()@resource://gre/modules/addons/XPIProvider.jsm:1728
+observe()@resource://gre/modules/AsyncShutdown.jsm:541
+GeckoDriver.prototype.quit()@driver.js:3319
+despatch()@server.js:297
+execute()@server.js:271
+onPacket/<()@server.js:246
+onPacket()@server.js:245
+_onJSONObjectReady/<()@transport.js:500
+[Child 7964, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 2720, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 2720, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8152, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8152, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+console.error: (new Error("Connection closed before committing the transaction.", "resource://gre/modules/Sqlite.jsm", 632))
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+1539151697026	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.5V1VAiDM1x6t"
+*** You are running in headless mode.
+1539151702122	Marionette	INFO	Listening on port 54763
+1539151702369	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539151702404	Marionette	DEBUG	[6442450945] Frame script loaded
+1539151702416	Marionette	DEBUG	[6442450945] Frame script registered
+1539151702440	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539151702598	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539151703203	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539151703415	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+1539151703698	Marionette	INFO	Stopped listening on port 54763
+1539151703724	addons.xpi	WARN	Exception running bootstrap method shutdown on activity-stream@mozilla.org: [Exception... "Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]"  nsresult: "0x80070057 (NS_ERROR_ILLEGAL_VALUE)"  location: "JS frame :: resource://activity-stream/lib/ActivityStreamPrefs.jsm :: ignoreBranch :: line 29"  data: no] Stack trace: ignoreBranch()@resource://activity-stream/lib/ActivityStreamPrefs.jsm:29
+uninit()@resource://activity-stream/lib/Store.jsm:172
+uninit()@resource://activity-stream/lib/ActivityStream.jsm:363
+uninit()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:86
+shutdown()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:194
+callBootstrapMethod()@resource://gre/modules/addons/XPIProvider.jsm:1592
+_shutdown()@resource://gre/modules/addons/XPIProvider.jsm:1728
+observe()@resource://gre/modules/AsyncShutdown.jsm:541
+GeckoDriver.prototype.quit()@driver.js:3319
+despatch()@server.js:297
+execute()@server.js:271
+onPacket/<()@server.js:246
+onPacket()@server.js:245
+_onJSONObjectReady/<()@transport.js:500
+[Parent 740, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 1768, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 1768, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+console.error: (new Error("Connection closed before committing the transaction.", "resource://gre/modules/Sqlite.jsm", 632))
+JavaScript error: resource://gre/modules/JSONFile.jsm, line 159: Error: Data is not ready.
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+1539151836259	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.UhbJZxnHitQd"
+*** You are running in headless mode.
+1539151841182	Marionette	INFO	Listening on port 54822
+1539151842811	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539151842846	Marionette	DEBUG	[6442450945] Frame script loaded
+1539151842857	Marionette	DEBUG	[6442450945] Frame script registered
+1539151842883	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539151843684	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539151845203	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539151846349	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+1539151846413	Marionette	INFO	Stopped listening on port 54822
+1539151846449	addons.xpi	WARN	Exception running bootstrap method shutdown on activity-stream@mozilla.org: [Exception... "Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]"  nsresult: "0x80070057 (NS_ERROR_ILLEGAL_VALUE)"  location: "JS frame :: resource://activity-stream/lib/ActivityStreamPrefs.jsm :: ignoreBranch :: line 29"  data: no] Stack trace: ignoreBranch()@resource://activity-stream/lib/ActivityStreamPrefs.jsm:29
+uninit()@resource://activity-stream/lib/Store.jsm:172
+uninit()@resource://activity-stream/lib/ActivityStream.jsm:363
+uninit()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:86
+shutdown()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:194
+callBootstrapMethod()@resource://gre/modules/addons/XPIProvider.jsm:1592
+_shutdown()@resource://gre/modules/addons/XPIProvider.jsm:1728
+observe()@resource://gre/modules/AsyncShutdown.jsm:541
+GeckoDriver.prototype.quit()@driver.js:3319
+despatch()@server.js:297
+execute()@server.js:271
+onPacket/<()@server.js:246
+onPacket()@server.js:245
+_onJSONObjectReady/<()@transport.js:500
+[Child 4240, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 4240, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6692, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6692, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8172, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8172, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+console.error: (new Error("Connection closed before committing the transaction.", "resource://gre/modules/Sqlite.jsm", 632))
+1539156377444	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.mqmBOO1u08PM"
+*** You are running in headless mode.
+1539156387071	Marionette	INFO	Listening on port 55955
+1539156387297	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539156387332	Marionette	DEBUG	[6442450945] Frame script loaded
+1539156387341	Marionette	DEBUG	[6442450945] Frame script registered
+1539156387378	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539156389780	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539156394819	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539156395239	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.goubanjia.com/
+1539156395266	Marionette	INFO	Stopped listening on port 55955
+[Child 6708, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6708, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 6536, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+1539156529673	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.ZHgbHOh5mAGo"
+*** You are running in headless mode.
+1539156537559	Marionette	INFO	Listening on port 56041
+1539156537609	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539156537673	Marionette	DEBUG	[6442450945] Frame script loaded
+1539156537704	Marionette	DEBUG	[6442450945] Frame script registered
+1539156537756	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539156552041	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539156564909	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539156564922	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539157024888	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.CD3NCtpAoeqZ"
+*** You are running in headless mode.
+1539157032232	Marionette	INFO	Listening on port 56195
+1539157036282	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539157036318	Marionette	DEBUG	[6442450945] Frame script loaded
+1539157036319	Marionette	DEBUG	[6442450945] Frame script registered
+1539157036346	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539157037582	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539157039419	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539157040738	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539157040794	Marionette	INFO	Stopped listening on port 56195
+[Child 6080, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6080, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539157316264	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.2SCNvfLTJnll"
+*** You are running in headless mode.
+1539157321690	Marionette	INFO	Listening on port 56309
+1539157322686	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539157322729	Marionette	DEBUG	[6442450945] Frame script loaded
+1539157322737	Marionette	DEBUG	[6442450945] Frame script registered
+1539157322760	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539157324365	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539157325045	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539157326911	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539157326953	Marionette	INFO	Stopped listening on port 56309
+1539157326986	addons.xpi	WARN	Exception running bootstrap method shutdown on activity-stream@mozilla.org: [Exception... "Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]"  nsresult: "0x80070057 (NS_ERROR_ILLEGAL_VALUE)"  location: "JS frame :: resource://activity-stream/lib/ActivityStreamPrefs.jsm :: ignoreBranch :: line 29"  data: no] Stack trace: ignoreBranch()@resource://activity-stream/lib/ActivityStreamPrefs.jsm:29
+uninit()@resource://activity-stream/lib/Store.jsm:172
+uninit()@resource://activity-stream/lib/ActivityStream.jsm:363
+uninit()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:86
+shutdown()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:194
+callBootstrapMethod()@resource://gre/modules/addons/XPIProvider.jsm:1592
+_shutdown()@resource://gre/modules/addons/XPIProvider.jsm:1728
+observe()@resource://gre/modules/AsyncShutdown.jsm:541
+GeckoDriver.prototype.quit()@driver.js:3319
+despatch()@server.js:297
+execute()@server.js:271
+onPacket/<()@server.js:246
+onPacket()@server.js:245
+_onJSONObjectReady/<()@transport.js:500
+[Parent 4628, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6200, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 4628, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8416, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8416, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539157355719	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.vdl2yuJF96uJ"
+*** You are running in headless mode.
+1539157361491	Marionette	INFO	Listening on port 56362
+1539157361816	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539157361850	Marionette	DEBUG	[6442450945] Frame script loaded
+1539157361859	Marionette	DEBUG	[6442450945] Frame script registered
+1539157361882	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539157362903	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539157365044	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539157365495	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539157365520	Marionette	INFO	Stopped listening on port 56362
+1539157365550	addons.xpi	WARN	Exception running bootstrap method shutdown on activity-stream@mozilla.org: [Exception... "Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]"  nsresult: "0x80070057 (NS_ERROR_ILLEGAL_VALUE)"  location: "JS frame :: resource://activity-stream/lib/ActivityStreamPrefs.jsm :: ignoreBranch :: line 29"  data: no] Stack trace: ignoreBranch()@resource://activity-stream/lib/ActivityStreamPrefs.jsm:29
+uninit()@resource://activity-stream/lib/Store.jsm:172
+uninit()@resource://activity-stream/lib/ActivityStream.jsm:363
+uninit()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:86
+shutdown()@resource://gre/modules/addons/XPIProvider.jsm -> jar:file:///C:/Program%20Files/Mozilla%20Firefox/browser/features/activity-stream@mozilla.org.xpi!/bootstrap.js:194
+callBootstrapMethod()@resource://gre/modules/addons/XPIProvider.jsm:1592
+_shutdown()@resource://gre/modules/addons/XPIProvider.jsm:1728
+observe()@resource://gre/modules/AsyncShutdown.jsm:541
+GeckoDriver.prototype.quit()@driver.js:3319
+despatch()@server.js:297
+execute()@server.js:271
+onPacket/<()@server.js:246
+onPacket()@server.js:245
+_onJSONObjectReady/<()@transport.js:500
+[Parent 5808, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9204, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 3084, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+1539157388832	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.AzKOkDR8LWL3"
+*** You are running in headless mode.
+1539157393879	Marionette	INFO	Listening on port 56419
+1539157394334	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539157394379	Marionette	DEBUG	[4294967297] Frame script loaded
+1539157394388	Marionette	DEBUG	[4294967297] Frame script registered
+1539157394411	Marionette	DEBUG	[4294967297] Received DOM event beforeunload for about:blank
+1539157396722	Marionette	DEBUG	[4294967297] Received DOM event pagehide for about:blank
+1539157400525	Marionette	DEBUG	[4294967297] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539157402492	Marionette	DEBUG	[4294967297] Received DOM event pageshow for http://www.goubanjia.com/
+1539157684391	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.Uj6Vcf75FcVu"
+*** You are running in headless mode.
+1539157699882	Marionette	INFO	Listening on port 56529
+[Child 8728, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8728, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 5556, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+1539157700036	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539157700071	Marionette	DEBUG	[6442450945] Frame script loaded
+1539157700080	Marionette	DEBUG	[6442450945] Frame script registered
+1539157700112	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539157712145	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539157712164	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539157712391	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for about:neterror?e=dnsNotFound&u=http%3A//www.letpub.com.cn/index.php%3Fpage%3Dgrant&c=UTF-8&f=regular&d=%E6%88%91%E4%BB%AC%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E8%87%B3%20www.letpub.com.cn%20%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%82
+1539157712401	Marionette	INFO	Stopped listening on port 56529
+[Parent 5556, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1539157766959	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.ejPnB5tBilVN"
+*** You are running in headless mode.
+1539157773448	Marionette	INFO	Listening on port 56593
+1539157773539	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539157781258	Marionette	DEBUG	[6442450945] Frame script loaded
+1539157781267	Marionette	DEBUG	[6442450945] Frame script registered
+1539157781326	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539157782527	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539157783389	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539157783884	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539157783909	Marionette	INFO	Stopped listening on port 56593
+[Child 5936, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 6708, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9060, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 6708, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188
+1539157889330	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.mMlZZdL16wbM"
+*** You are running in headless mode.
+1539157895821	Marionette	INFO	Listening on port 56691
+1539157896588	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539157903405	Marionette	DEBUG	[6442450945] Frame script loaded
+1539157903413	Marionette	DEBUG	[6442450945] Frame script registered
+1539157903460	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for about:blank
+1539157905457	Marionette	DEBUG	[6442450945] Received DOM event pagehide for about:blank
+1539157905458	Marionette	DEBUG	[6442450945] Received DOM event unload for about:blank
+JavaScript error: http://www.letpub.com.cn/javascripts/util.js, line 5: ReferenceError: $ is not defined
+JavaScript error: http://www.letpub.com.cn/index.php?page=grant, line 492: ReferenceError: $ is not defined
+JavaScript error: http://www.letpub.com.cn/index.php?page=grant, line 503: ReferenceError: $ is not defined
+1539157983932	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://www.letpub.com.cn/index.php?page=grant
+1539157984416	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://www.letpub.com.cn/index.php?page=grant
+1539157984441	Marionette	INFO	Stopped listening on port 56691
+[Child 5608, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 5608, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 6780, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 2316, Gecko_IOThread] WARNING: file z:/build/build/src/ipc/chromium/src/base/process_util_win.cc, line 188

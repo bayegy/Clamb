@@ -9,6 +9,8 @@ import math
 import random
 import numpy as np
 import urllib3
+from selenium import webdriver
+
 
 class letpub(object):
     """docstring for weipu"""
@@ -22,18 +24,50 @@ class letpub(object):
         #self.headforget['Referer'] = self.header['Referer']
         self.headforget['Connection'] = 'close'
         self.headforget['Upgrade-Insecure-Requests']='1'
-        self.proxy={"http":"http://39.135.9.166:8080","https":"https://39.135.9.166:8080"}
+        self.proxy=None
+        self.ipchanger=self.changeip()
         self.keys = self.getkey()
         
 
     def getkey(self):
-        res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant',headers=self.headforget,proxies=self.proxy)
-        tree = html.fromstring(res.content)
+        try:
+            option=webdriver.FirefoxOptions()
+            option.set_headless()
+            driver=webdriver.Firefox(firefox_options=option)
+            driver.get('http://www.letpub.com.cn/index.php?page=grant')
+            res=driver.page_source
+            tree=html.fromstring(res)
+        finally:
+            driver.quit()
         key = tree.xpath('//select[@name="addcomment_s1"]/option/@value')
         subkey = tree.xpath('//select[@name="subcategory"]/option/@value')
         key.remove("0")
         subkey.remove("")
         return([key, subkey])
+
+    def changeip(self):
+        while True:
+            option1=webdriver.FirefoxOptions()
+            option1.set_headless()
+            driver1=webdriver.Firefox(firefox_options=option1)
+            driver1.get('http://www.goubanjia.com/')
+            res=driver1.page_source
+            tree=html.fromstring(res)
+            ipnode=tree.xpath("//td[@class='ip']")
+            ips=[]
+            for ipdn in range(len(ipnode)):
+                ip=ipnode[ipdn].xpath("*[not(@style='display:none;' or @style='display: none;')]/text()")
+                ip="".join(ip[0:-1])+":"+ip[-1]
+                ips.append(ip)
+            #ip2=tree.xpath("//td[@class='ip']//text()")
+            ln=len(ips)
+            tp=np.array(tree.xpath("//tbody/tr/td[not(@class='ip')]/a/text()")).reshape(ln,6)
+            for n in range(ln):
+                if tp[n,0]=='高匿' and tp[n,1]=='http':
+                    ipout={}
+                    ipout['http']="http://"+ips[n]
+                    yield(ipout)
+
 
     def formdict(self, file, sep):
         d = {}
@@ -54,25 +88,23 @@ class letpub(object):
                 print("Max retry, please check your code")
                 break
             try:
-                if endyear:
-                    res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, endyear, subkey, key, page), headers=self.headforget,proxies=self.proxy)
-                    break
-                else:
-                    res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, year, subkey, key, page), headers=self.headforget,proxies=self.proxy)
-                    break
+                if not endyear:
+                    endyear=year
+                res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
+                                    (name, year, endyear, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                tree = html.fromstring(res.content)
+                totalpage = tree.xpath('//center/div/text()')[0]
+                break
             except TimeoutError:
-                print("TimeoutError, please wait for 2 seconds")
+                print("TimeoutError, please wait for 3 seconds")
                 time.sleep(3)
             except ConnectionError:
-                print("ConnectionError, please wait for 2 seconds")
+                print("ConnectionError, please wait for 3 seconds")
                 time.sleep(3)
-            except:
-                print("ConnectionAbortedError, please wait for 2 seconds")
-                time.sleep(3)
-        tree = html.fromstring(res.content)
-        totalpage = tree.xpath('//center/div/text()')[0]
+            except IndexError:
+                self.proxy=self.ipchanger.__next__()
+                print("Changed ip location to %s" % (self.proxy['http']))
+
         pages = int(re.search('共(\d+)页', totalpage).group(1))
         records = int(re.search('(\d+)条记录', totalpage).group(1))
         if pages <= 50:
@@ -101,28 +133,26 @@ class letpub(object):
                 print("Max retry, please check your code")
                 break
             try:
-                if endyear:
-                    res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, endyear, subkey, key, page), headers=self.headforget,proxies=self.proxy)
-                    break
-                else:
-                    res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                       (name, year, year, subkey, key, page), headers=self.headforget,proxies=self.proxy)
-                    break
+                if not endyear:
+                    endyear=year
+                res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
+                                    (name, year, endyear, subkey, key, page), headers=self.headforget,proxies=self.proxy)
+                tree = html.fromstring(res.content)
+                out1 = tree.xpath('//td[@colspan="6"]')
+                out1 = self.get_alltxt(out1)
+                #out1.remove(' ')
+                del out1[0]
+                break
             except TimeoutError:
                 print("TimeoutError, please wait for 2 seconds")
                 time.sleep(3)
             except ConnectionError:
                 print("ConnectionError, please wait for 2 seconds")
                 time.sleep(3)
-            except:
-                print("ConnectionAbortedError, please wait for 2 seconds")
-                time.sleep(3)
-        tree = html.fromstring(res.content)
-        out1 = tree.xpath('//td[@colspan="6"]')
-        out1 = self.get_alltxt(out1)
-        #out1.remove(' ')
-        del out1[0]
+            except IndexError:
+                self.proxy=self.ipchanger.__next__()
+                print("Changed ip location to %s" % (self.proxy['http']))
+
         out1 = np.array(out1).reshape(int(len(out1) / 2), 2, order='C')
         out2 = tree.xpath('//tr[@style="background:#EFEFEF;"]/td')
         out2 = self.get_alltxt(out2)
@@ -145,7 +175,6 @@ class letpub(object):
 
         except FileNotFoundError:
             prepmid = []
-
         with open(outpath, 'a', encoding='utf-8') as outff:
             if not prepmid:
                 outff.write('题目\t学科分类\t负责人\t单位\t金额(万)\t项目编号\t项目类型\t所属学部\t批准年份\t查询编码\n')
