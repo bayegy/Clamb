@@ -32,16 +32,25 @@ class letpub(object):
         self.keys = self.getkey()
 
     def getkey(self):
-        # self.driver.get('http://www.letpub.com.cn/index.php?page=grant')
-        res = requests.get(url="http://www.letpub.com.cn/index.php?page=grant", headers=self.header, proxies=self.proxy)
-        #res = self.driver.page_source
-        tree = html.fromstring(res.content)
-        key = tree.xpath('//select[@name="addcomment_s1"]/option/@value')
-        subkey = tree.xpath('//select[@name="subcategory"]/option/@value')
-        # print(res.content)
-        key.remove("0")
-        subkey.remove("")
-        return([key, subkey])
+        while True:
+            try:
+                # self.driver.get('http://www.letpub.com.cn/index.php?page=grant')
+                res = requests.get(url="http://www.letpub.com.cn/index.php?page=grant",
+                                   headers=self.header, proxies=self.proxy, timeout=20)
+                #res = self.driver.page_source
+                if res.status_code == 200:
+                    tree = html.fromstring(res.content)
+                    key = tree.xpath('//select[@name="addcomment_s1"]/option/@value')
+                    subkey = tree.xpath('//select[@name="subcategory"]/option/@value')
+                    # print(res.content)
+                    key.remove("0")
+                    subkey.remove("")
+                    return([key, subkey])
+                else:
+                    raise(TimeoutError)
+            except:
+                self.proxy = self.ipchanger.__next__()
+                print("Changed ip location to %s" % (self.proxy['http']))
 
     def changeip(self):
         while True:
@@ -73,25 +82,42 @@ class letpub(object):
         return(d)
 
     def checkid(self, search_id, endyear=False):
-        time.sleep(3 + random.randint(4, 10))
+
         name, year, page, key, subkey = re.split('_', search_id)
+
+        outlog = '@' + name + '_check_log.txt'
+        try:
+            with open(outlog, 'r', encoding='utf-8') as prefile:
+                for line in prefile:
+                    pr = re.split('\t', line.strip())
+                    pre_search_id = pr[0]
+                    pre_check = [int(pr[1]), int(pr[2])]
+                    if pre_search_id == search_id:
+                        return(pre_check)
+        except FileNotFoundError:
+            pass
+
+        time.sleep(1 + random.randint(4, 10))
         tm = 0
         while True:
             tm += 1
             if tm > 20:
                 print("Max retry, please check your code")
+                exit()
                 break
             try:
                 if not endyear:
                     endyear = year
                 res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                   (name, year, endyear, subkey, key, page), headers=self.headforget, proxies=self.proxy)
-                tree = html.fromstring(res.content)
-                totalpage = tree.xpath('//center/div/text()')[0]
-                break
-            except TimeoutError:
-                print("TimeoutError, please wait for 3 seconds")
-                time.sleep(3)
+                                   (name, year, endyear, subkey, key, page), headers=self.headforget, proxies=self.proxy, timeout=20)
+                if res.status_code == 200:
+                    tree = html.fromstring(res.content)
+                    totalpage = tree.xpath('//center/div/text()')[0]
+                    pages = int(re.search('共(\d+)页', totalpage).group(1))
+                    records = int(re.search('(\d+)条记录', totalpage).group(1))
+                    break
+                else:
+                    raise(TimeoutError)
             except ConnectionError:
                 print("ConnectionError, please wait for 3 seconds")
                 time.sleep(3)
@@ -99,17 +125,20 @@ class letpub(object):
                 self.proxy = self.ipchanger.__next__()
                 print("Changed ip location to %s" % (self.proxy['http']))
 
-        pages = int(re.search('共(\d+)页', totalpage).group(1))
-        records = int(re.search('(\d+)条记录', totalpage).group(1))
-        if 0 < pages <= 50:
-            print([pages, records])
-            return([pages, records])
-        elif pages > 50:
-            print([False, records])
-            return([False, records])
-        else:
-            print([-1, records])
-            return([-1, records])
+#        if 0 < pages <= 50:
+#            print([pages, records])
+#            out = [pages, records]
+#        elif pages > 50:
+#            print([False, records])
+#            out = [False, records]
+#        else:
+#            out = [-1, records]
+        out = [pages, records]
+        print(out)
+
+        with open(outlog, 'a', encoding='utf-8') as olg:
+            olg.write(search_id + '\t' + str(out[0]) + '\t' + str(out[1]) + '\n')
+        return(out)
 
     def get_alltxt(self, xpath_out):
         outa = []
@@ -130,20 +159,22 @@ class letpub(object):
             tm += 1
             if tm > 20:
                 print("Max retry, please check your code")
+                exit()
                 break
             try:
                 if not endyear:
                     endyear = year
                 res = requests.get(url='http://www.letpub.com.cn/index.php?page=grant&name=%s&person=&no=&company=&startTime=%s&endTime=%s&money1=&money2=&subcategory=%s&addcomment_s1=%s&addcomment_s2=0&addcomment_s3=0&currentpage=%s#fundlisttable' %
-                                   (name, year, endyear, subkey, key, page), headers=self.headforget, proxies=self.proxy)
-                tree = html.fromstring(res.content)
-                out1 = tree.xpath('//td[@colspan="6"]')
-                out1 = self.get_alltxt(out1)
-                del out1[0]
-                break
-            except TimeoutError:
-                print("TimeoutError, please wait for 2 seconds")
-                time.sleep(3)
+                                   (name, year, endyear, subkey, key, page), headers=self.headforget, proxies=self.proxy, timeout=20)
+                if res.status_code == 200:
+                    tree = html.fromstring(res.content)
+                    out1 = tree.xpath('//td[@colspan="6"]')
+                    out1 = self.get_alltxt(out1)
+                    del out1[0]
+#                    print(out1)
+                    break
+                else:
+                    raise(TimeoutError)
             except ConnectionError:
                 print("ConnectionError, please wait for 2 seconds")
                 time.sleep(3)
@@ -151,18 +182,25 @@ class letpub(object):
                 self.proxy = self.ipchanger.__next__()
                 print("Changed ip location to %s" % (self.proxy['http']))
 
-        out1 = np.array(out1).reshape(int(len(out1) / 2), 2, order='C')
         out2 = tree.xpath('//tr[@style="background:#EFEFEF;"]/td')
         out2 = self.get_alltxt(out2)
         ln = int(len(out2) / 7)
-        out2 = np.array(out2).reshape(ln, 7, order='C')
-        ap = np.array(ln * [search_id])
-        ap.shape = ln, 1
-        out = np.append(out1, out2, axis=1)
-        out = np.append(out, ap, axis=1)
-        out = out.tolist()
-        print(out)
-        return(out)
+        try:
+            out1 = np.array(out1).reshape(ln, 2, order='C')
+            out2 = np.array(out2).reshape(ln, 7, order='C')
+            ap = np.array(ln * [search_id])
+            ap.shape = ln, 1
+            out = np.append(out1, out2, axis=1)
+            out = np.append(out, ap, axis=1)
+            out = out.tolist()
+    #        print(out)
+            return(out)
+        except:
+            print(out1)
+            print(out2)
+            print('please check search id: %s' % (search_id))
+            with open('error.html', 'w', encoding='utf-8') as oef:
+                oef.write(res.text)
 
     def main(self, name, year_range=(2012, 2018)):
         outpath = name + '_project_leader.xls'
@@ -174,6 +212,7 @@ class letpub(object):
 
         except FileNotFoundError:
             prepmid = []
+
         with open(outpath, 'a', encoding='utf-8') as outff:
             if not prepmid:
                 outff.write('题目\t学科分类\t负责人\t单位\t金额(万)\t项目编号\t项目类型\t所属学部\t批准年份\t查询编码\n')
@@ -182,7 +221,7 @@ class letpub(object):
             td = self.checkid(search_id='%s_%s_1_0_' % (name, year_range[0]), endyear=year_range[1])[1]
             for year in range(year_range[0], year_range[1] + 1):
                 isok = self.checkid(search_id='%s_%s_1_0_' % (name, year))[0]
-                if isok:
+                if isok <= 50:
                     if isok > 0:
                         for page in range(1, isok + 1):
                             if '%s_%s_%s_0_' % (name, str(year), str(page)) not in prepmid:
@@ -198,7 +237,7 @@ class letpub(object):
                 else:
                     for key in self.keys[0]:
                         is_class = self.checkid(search_id='%s_%s_1_%s_' % (name, year, key))[0]
-                        if is_class:
+                        if is_class <= 50:
                             if is_class > 0:
                                 for page in range(1, is_class + 1):
                                     if '%s_%s_%s_%s_' % (name, str(year), str(page), key) not in prepmid:
@@ -214,7 +253,7 @@ class letpub(object):
                         else:
                             for subkey in self.keys[1]:
                                 is_subclass = self.checkid(search_id='%s_%s_1_%s_%s' % (name, year, key, subkey))[0]
-                                if not is_subclass:
+                                if is_subclass > 50:
                                     is_subclass = 50
                                     outff.write('Total page out of range, please check searching id:\t%s_%s__%s_%s' % (
                                         name, year, key, subkey))

@@ -776,3 +776,157 @@ JavaScript error: http://www.letpub.com.cn/index.php?page=grant, line 503: Refer
 1539078617531	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
 1539078618040	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
 1539078618066	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539080971957	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.yv6GVDqULQ5f"
+*** You are running in headless mode.
+1539080973753	Marionette	INFO	Listening on port 42161
+1539080973784	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539080973828	Marionette	DEBUG	[2147483649] Frame script loaded
+1539080973839	Marionette	DEBUG	[2147483649] Frame script registered
+1539080973863	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539080973963	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539080974293	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539080974388	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539081116570	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.S0K06PLe1KPo"
+*** You are running in headless mode.
+1539081118153	Marionette	INFO	Listening on port 35705
+1539081118187	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539081118231	Marionette	DEBUG	[2147483649] Frame script loaded
+1539081118232	Marionette	DEBUG	[2147483649] Frame script registered
+1539081118253	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539081118403	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539081118777	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539081133891	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539084522223	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for http://www.goubanjia.com/
+1539084522329	Marionette	DEBUG	[2147483649] Received DOM event pagehide for http://www.goubanjia.com/
+1539084522811	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539084522913	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539129659886	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.keoWfaVpOdsQ"
+*** You are running in headless mode.
+1539129661584	Marionette	INFO	Listening on port 36649
+1539129661611	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539129661654	Marionette	DEBUG	[2147483649] Frame script loaded
+1539129661656	Marionette	DEBUG	[2147483649] Frame script registered
+1539129661674	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539129661817	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539129662164	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539129662199	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539131741157	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for http://www.goubanjia.com/
+1539131741264	Marionette	DEBUG	[2147483649] Received DOM event pagehide for http://www.goubanjia.com/
+1539131741409	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539131741503	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539131992232	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for http://www.goubanjia.com/
+1539131992341	Marionette	DEBUG	[2147483649] Received DOM event pagehide for http://www.goubanjia.com/
+1539131992538	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539131992583	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539137464280	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ysr8U5mY4cym"
+*** You are running in headless mode.
+1539137465759	Marionette	INFO	Listening on port 37050
+1539137465805	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539137465848	Marionette	DEBUG	[2147483649] Frame script loaded
+1539137465850	Marionette	DEBUG	[2147483649] Frame script registered
+1539137465867	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539137465985	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539137466346	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539137466436	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539139860308	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for http://www.goubanjia.com/
+1539139860434	Marionette	DEBUG	[2147483649] Received DOM event pagehide for http://www.goubanjia.com/
+1539139860615	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539139860652	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539140655297	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for http://www.goubanjia.com/
+1539140655397	Marionette	DEBUG	[2147483649] Received DOM event pagehide for http://www.goubanjia.com/
+1539140655544	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539140655646	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539140997204	Marionette	INFO	Stopped listening on port 37050
+[Parent 54643, Gecko_IOThread] WARNING: pipe error (42): 连接被对方重设: file /build/firefox-E5azaL/firefox-62.0.3+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1539145178628	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.g9Pphjm2Nyn5"
+*** You are running in headless mode.
+1539145180325	Marionette	INFO	Listening on port 32804
+1539145180350	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539145180395	Marionette	DEBUG	[2147483649] Frame script loaded
+1539145180398	Marionette	DEBUG	[2147483649] Frame script registered
+1539145180423	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539145180545	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539145180881	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539145180903	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539145263440	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.FkKZu46nQXFf"
+*** You are running in headless mode.
+1539145265299	Marionette	INFO	Listening on port 34702
+1539145265364	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539145265417	Marionette	DEBUG	[2147483649] Frame script loaded
+1539145265418	Marionette	DEBUG	[2147483649] Frame script registered
+1539145265437	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539145265814	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539145266162	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539145266183	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539148042614	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for http://www.goubanjia.com/
+1539148042726	Marionette	DEBUG	[2147483649] Received DOM event pagehide for http://www.goubanjia.com/
+1539148042775	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539148042808	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539148042887	Marionette	INFO	Stopped listening on port 34702
+[Parent 57273, Gecko_IOThread] WARNING: pipe error (65): 连接被对方重设: file /build/firefox-E5azaL/firefox-62.0.3+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1539148131469	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ZOfaAHSJLwk6"
+*** You are running in headless mode.
+1539148133350	Marionette	INFO	Listening on port 39809
+1539148133396	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539148133459	Marionette	DEBUG	[2147483649] Frame script loaded
+1539148133461	Marionette	DEBUG	[2147483649] Frame script registered
+1539148133485	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539148133823	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539148144116	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539148144210	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539148179375	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.6EQkt0jzosNG"
+*** You are running in headless mode.
+1539148181123	Marionette	INFO	Listening on port 38847
+1539148181185	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539148181234	Marionette	DEBUG	[2147483649] Frame script loaded
+1539148181235	Marionette	DEBUG	[2147483649] Frame script registered
+1539148181251	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539148181353	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539148181738	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539148181766	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539148206223	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vk6jpKdSTyPh"
+*** You are running in headless mode.
+1539148207966	Marionette	INFO	Listening on port 33686
+1539148208038	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539148208079	Marionette	DEBUG	[2147483649] Frame script loaded
+1539148208081	Marionette	DEBUG	[2147483649] Frame script registered
+1539148208105	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539148208211	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539148208808	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539148212665	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539148348041	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.mBLyUqEszb0W"
+*** You are running in headless mode.
+1539148349586	Marionette	INFO	Listening on port 37704
+1539148349655	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539148349698	Marionette	DEBUG	[2147483649] Frame script loaded
+1539148349709	Marionette	DEBUG	[2147483649] Frame script registered
+1539148349727	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539148349830	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539148350185	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539148350219	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539148359855	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Af2qglOrxAMp"
+*** You are running in headless mode.
+1539148361723	Marionette	INFO	Listening on port 33954
+1539148361776	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539148361819	Marionette	DEBUG	[2147483649] Frame script loaded
+1539148361821	Marionette	DEBUG	[2147483649] Frame script registered
+1539148361839	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539148361953	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539148362309	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539148362360	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539149364265	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.hpVUtcZYqNcP"
+*** You are running in headless mode.
+1539149365994	Marionette	INFO	Listening on port 41407
+1539149366073	Marionette	WARN	TLS certificate errors will be ignored for this session
+1539149366114	Marionette	DEBUG	[2147483649] Frame script loaded
+1539149366117	Marionette	DEBUG	[2147483649] Frame script registered
+1539149366139	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1539149366238	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1539149366578	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539149366620	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539152773643	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for http://www.goubanjia.com/
+1539152773743	Marionette	DEBUG	[2147483649] Received DOM event pagehide for http://www.goubanjia.com/
+1539152773907	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for http://www.goubanjia.com/
+1539152774002	Marionette	DEBUG	[2147483649] Received DOM event pageshow for http://www.goubanjia.com/
+1539153646185	Marionette	INFO	Stopped listening on port 41407
+[Parent 60071, Gecko_IOThread] WARNING: pipe error (59): 连接被对方重设: file /build/firefox-E5azaL/firefox-62.0.3+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
