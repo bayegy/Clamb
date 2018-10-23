@@ -1,0 +1,9 @@
+Host: qikan.cqvip.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate
+Referer: http://qikan.cqvip.com/zk/search.aspx?from=index&key=M%3D%E5%BE%AE%E7%94%9F[*]YY%3D2018-2018&page=3&ls=1&size=50
+Cookie: user_behavior_flag=b244e3d7-9d44-4b3f-ad37-a8e512a0bf3c; Hm_lvt_fee827c3dc795c5122daf5ee854c1683=1538017120,1539652763,1539653592,1539653608; _ga=GA1.2.1422087605.1537512556; bdshare_firstime=1537512750987; ASP.NET_SessionId=33ee556c-6364-4410-a65d-4c9b964a61c2; LIBCheck=WT_FPC=WT_FPC=id=2bf6208a31f956981d31539679280280:lv=1539679280280:ss=1539679280280; Hm_lpvt_fee827c3dc795c5122daf5ee854c1683=1539679281; _gid=GA1.2.1643667332.1539652765; MainSearch=false; LIBSizeCOOKIE=50; LIBListStyleCOOKIE=1
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1

@@ -1,9 +1,11 @@
-Host: qikan.cqvip.com
+Host: www.ncbi.nlm.nih.gov
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
-Accept-Encoding: gzip, deflate
-Referer: http://qikan.cqvip.com/zk/search.aspx?from=index&key=U%3D%E5%BE%AE%E7%94%9F%E7%89%A9&ls=1
-Cookie: user_behavior_flag=b244e3d7-9d44-4b3f-ad37-a8e512a0bf3c; Hm_lvt_fee827c3dc795c5122daf5ee854c1683=1537512556,1537835477; _ga=GA1.2.1422087605.1537512556; bdshare_firstime=1537512750987; LIBListStyleCOOKIE=1; LIBSizeCOOKIE=50; ASP.NET_SessionId=12944f5b-ac92-432c-856f-dc4162b28aaa; LIBCheck=WT_FPC=WT_FPC=id=206fc14a96d62ec81c61537835509053:lv=1537835509053:ss=1537835509053; Hm_lpvt_fee827c3dc795c5122daf5ee854c1683=1537835510; _gid=GA1.2.1380029519.1537835477; _gat=1
+Accept-Encoding: gzip, deflate, br
+Referer: https://www.ncbi.nlm.nih.gov/pubmed
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 5360
+Cookie: ncbi_sid=CE8D13FAB5E67571_0099SID; _ga=GA1.2.1258815191.1532913498; entrezSort=pubmed:; _gid=GA1.2.63426420.1539736960; WebEnv=1BwwlFQxe8SQbU_3rZIkOfln2VJ9fSoO6gYNHBg2DAE2H5C-XS4xJKSxIbMQg8kupoobnUbYzjbXOeAoRfKh2B-sOSxUwPhwGyd%40CE8D13FAB5E67571_0099SID; _gat_ncbiSg=1; ncbi_pinger=N4IgDgTgpgbg+mAFgSwCYgFwgMIFEAcAggEwDspAzAELakBiADLnQIwPsecAiu7AbAE4AdAFs4LFiAA0IAMYAbZLIDWAOygAPAC6ZQDTCGSrF6uIoDOWqfKgAzLQAJUyc2HkBDAJ5xzULVqMAc3MpaHMAV3ktcx8/ANVgqVkAe1UtKDSk5PkpXxgMuBT5aRBJLDDIrTh3WQDUuAAjdwgpEXcjFLSMnRkKAQMWPgpiPhKAFn0sFnwxgFZZ8bGDBSU1TR6QOYHx0axbd3lfcdIDMeIKcfwBiiuZMf6sACtkQIBaVVkG5DBksDAoCAlWaTECIfxgcwYAD0UIA7vChB8voj5CJEchEEJAskYFCwOEGiIoKgAMRAsogLguNxeIHEAx0ZIQNpaDAOADK4REbQgnhAAF8ZOFjMl3Kh1NpdCAbgYSn0DMR8KQBPS7iCKAwVZI7kssML5KLxetxgssKqQLNdpt5kCTlh9DI+BS2DMBTIUtzUhKdBhQPSsN1oAAvOUGfGE4njAyoZKyCIiIGyx3R2Pxkp20FaETFGRXM3sEoPECoOzuSolCTbGQsC5YCj3G3V3XF6kebyyRDuBJQCtWg450oZ/aHHvVvMgYdHGTEEF4IhkSg0ehMVicNcMHj8YRiSvTimBqBBjDhomoDAxuNcjAAOQA8tfcCViP6QPDYYjPsgUWjVBisTinyLFgxj4W5pRBCQGG1aVnT6BZehfNg+FGXpaxALQIHCUdpWbDCsPGNCGCEGchCWGRZjQmsBHgi1mzGGsBX5IA===
 Connection: keep-alive
 Upgrade-Insecure-Requests: 1

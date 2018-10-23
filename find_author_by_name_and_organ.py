@@ -31,16 +31,17 @@ class weipu(object):
                     url='http://qikan.cqvip.com/zk/search.aspx?from=zk_search&key=' +
                         keyword + '&page=' + str(page) + '&size=50&ls=1#search-result-list',
                     # url='http://qikan.cqvip.com/zk/search.aspx?from=zk_search&key=U%3D%E5%BE%AE%E7%94%9F%E7%89%A9&page=2&size=50&ls=1#search-result-list',
-                    headers=self.header)
-                tree = html.fromstring(res.content)
-                id_set = tree.xpath(
-                    '//input[@name="vcubeid"]/@value')
-                id_set = [id.strip() for id in id_set]
-                try:
-                    totalpage = tree.xpath('//span[@class="total"]/text()')[0]
-                    totalpage = int(re.sub(",", "", re.search("[\d|,]+", totalpage).group()))
-                except IndexError:
-                    pass
+                    headers=self.header, timeout=20)
+                if res.status_code == 200:
+                    try:
+                        tree = html.fromstring(res.content)
+                        id_set = tree.xpath(
+                            '//input[@name="vcubeid"]/@value')
+                        id_set = [id.strip() for id in id_set]
+                        totalpage = tree.xpath('//span[@class="total"]/text()')[0]
+                        totalpage = int(re.sub(",", "", re.search("[\d|,]+", totalpage).group()))
+                    except IndexError:
+                        pass
                 tm += 1
                 if id_set:
                     out = [totalpage, id_set]
@@ -49,8 +50,8 @@ class weipu(object):
                     print('\n Loading Error, tring another time')
                     time.sleep(2)
 
-            except TimeoutError:
-                print('TimeoutError, please wait for 2 seconds')
+            except Exception as e:
+                print('Error occurred: ' + str(e) + 'Tring to fix is.')
                 time.sleep(2)
         return(out)
         # print(res.text)
@@ -133,14 +134,14 @@ class weipu(object):
                 pass
 
             f_tel = '无'
-            if re.search('Tel：([0-9\-—]+)', info[0]):
-                f_tel = re.search('Tel：([0-9\-—]+)', info[0]).group(1)
+            if re.search('Tel：([0-9\-—\+]+)', info[0]):
+                f_tel = re.search('Tel：([0-9\-—\+]+)', info[0]).group(1)
                 f_tel = f_tel.strip('\.|．|\-')
 
             m_tel = '无'
             try:
-                if re.search('Tel：([0-9\-—]+)', info[1]):
-                    m_tel = re.search('Tel：([0-9\-—]+)', info[1]).group(1)
+                if re.search('Tel：([0-9\-—\+]+)', info[1]):
+                    m_tel = re.search('Tel：([0-9\-—\+]+)', info[1]).group(1)
                     m_tel = m_tel.strip('\.|．|\-')
             except IndexError:
                 pass
@@ -153,11 +154,11 @@ class weipu(object):
 
     def formkeyword(self, table):
         keyword = []
-        with open(table, 'r',encoding='utf-8') as infile:
+        with open(table, 'r', encoding='utf-8') as infile:
             for line in enumerate(infile):
-                li=re.sub('\?','',line[1])
+                li = re.sub('\?', '', line[1])
                 li = re.split('\t', li.strip('\n'))
-                li=[l.strip() for l in li]
+                li = [l.strip() for l in li]
                 if line[0] == 0:
                     for w in enumerate(li):
                         if w[1] == '负责人':
@@ -206,7 +207,7 @@ class weipu(object):
                             id_set = []
                             page += 1
                             print("\n Searching in page%s according to name and organization" % (page))
-                            #sys.stdout.flush()
+                            # sys.stdout.flush()
                             finded_id = self.get_id(page=page, keyword=long_key)
                             if finded_id:
                                 id_set = finded_id[1]
@@ -217,11 +218,11 @@ class weipu(object):
                                 finded_info = self.get_info(id=eachid)
                                 if finded_info:
                                     if not finded_info[0] == '无' and name == finded_info[1]:
-                                        finded_email = finded_info[0]+'\t'+finded_info[7] + '\t' + finded_info[5] + \
+                                        finded_email = finded_info[0] + '\t' + finded_info[7] + '\t' + finded_info[5] + \
                                             '\t' + finded_info[6] + '\t' + finded_info[8] + '\t' + '根据姓名和单位查找'
                                         break
                                     elif not finded_info[2] == '无' and name == finded_info[3]:
-                                        finded_email = finded_info[2]+'\t'+finded_info[7] + '\t' + finded_info[5] + \
+                                        finded_email = finded_info[2] + '\t' + finded_info[7] + '\t' + finded_info[5] + \
                                             '\t' + finded_info[6] + '\t' + finded_info[9] + '\t' + '根据姓名和单位查找'
                                         break
                             if not finded_email == '无法找到邮箱\t\t\t\t\t':
@@ -235,7 +236,7 @@ class weipu(object):
                                 id_set = []
                                 page += 1
                                 print("\n Searching in page%s according to  name" % (page))
-                                #sys.stdout.flush()
+                                # sys.stdout.flush()
                                 finded_id = self.get_id(page=page, keyword=short_key)
                                 if finded_id:
                                     id_set = id_set + finded_id[1]
@@ -246,11 +247,11 @@ class weipu(object):
                                     finded_info = self.get_info(id=eachid)
                                     if finded_info:
                                         if not finded_info[0] == '无' and name == finded_info[1]:
-                                            finded_email = finded_info[0]+'\t'+finded_info[7] + '\t' + finded_info[5] + \
+                                            finded_email = finded_info[0] + '\t' + finded_info[7] + '\t' + finded_info[5] + \
                                                 '\t' + finded_info[6] + '\t' + finded_info[8] + '\t' + '只根据名字查找'
                                             break
                                         elif not finded_info[2] == '无' and name == finded_info[3]:
-                                            finded_email = finded_info[2]+'\t'+finded_info[7] + '\t' + finded_info[5] + \
+                                            finded_email = finded_info[2] + '\t' + finded_info[7] + '\t' + finded_info[5] + \
                                                 '\t' + finded_info[6] + '\t' + finded_info[9] + '\t' + '只根据名字查找'
                                             break
                                 if not finded_email == '无法找到邮箱\t\t\t\t\t':

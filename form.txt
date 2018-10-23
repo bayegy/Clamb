@@ -8,7 +8,7 @@ email_add_text
 email_address	
 email_format	docsum
 email_start	1
-email_subj	((tumor+OR+cancer))+AND+China+-+PubMed
+email_subj	((China)+AND+(microRNA+OR+miRNA+OR+circRNA+OR+"non+-+PubMed
 EmailCheck1	
 EmailCheck2	
 EntrezSystem2.PEntrez.DbConnector.Cmd	displaychanged
@@ -16,14 +16,14 @@ EntrezSystem2.PEntrez.DbConnector.Db	pubmed
 EntrezSystem2.PEntrez.DbConnector.IdsFromResult	
 EntrezSystem2.PEntrez.DbConnector.LastDb	pubmed
 EntrezSystem2.PEntrez.DbConnector.LastIdsFromResult	
-EntrezSystem2.PEntrez.DbConnector.LastQueryKey	1
+EntrezSystem2.PEntrez.DbConnector.LastQueryKey	4
 EntrezSystem2.PEntrez.DbConnector.LastTabCmd	
 EntrezSystem2.PEntrez.DbConnector.LinkName	
 EntrezSystem2.PEntrez.DbConnector.LinkReadableName	
 EntrezSystem2.PEntrez.DbConnector.LinkSrcDb	
 EntrezSystem2.PEntrez.DbConnector.QueryKey	
 EntrezSystem2.PEntrez.DbConnector.TabCmd	
-EntrezSystem2.PEntrez.DbConnector.Term	((tumor+OR+cancer))+AND+China
+EntrezSystem2.PEntrez.DbConnector.Term	((China)+AND+(microRNA+OR+miRNA+OR+circRNA+OR+"noncoding+RNA"+OR+"non-coding+RNA"))+AND+("2010"[Date+-+Publication]+:+"2019"[Date+-+Publication])
 EntrezSystem2.PEntrez.PubMed.Pubmed_Facets.BMFacets	
 EntrezSystem2.PEntrez.PubMed.Pubmed_Facets.FacetSubmitted	false
 EntrezSystem2.PEntrez.PubMed.Pubmed_Facets.FacetsUrlFrag	filters=
@@ -33,7 +33,7 @@ EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.EmailTab.Answer
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.EmailTab.Email	
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.EmailTab.EmailCount	
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.EmailTab.EmailFormat	
-EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.EmailTab.EmailHID	1hObE09qowfjv5mLROfbw6il9yqQg9bSouncmotXdglO6b6Inr-8onSpCT5Aidsvxn5P-m4eXwj82UKzPEX4WBYACMC5Tta987
+EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.EmailTab.EmailHID	1-AZ3KKdHGWQT9mqMUTW56mMtoigfyezswc3ctrsitxXtbwxfh8MkXOdu7gKf8dX7h99gxdjc-vzk6m0qdviwzpADWT5sivQv
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.EmailTab.EmailQueryKey	
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.EmailTab.EmailReport	
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.EmailTab.EmailSort	
@@ -69,11 +69,11 @@ EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.Pubmed_DisplayBar.sPresentation
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.Pubmed_DisplayBar.sSort	none
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.Pubmed_Pager.cPage	[…]
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.Pubmed_Pager.CurrPage	1
-EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.Pubmed_ResultsController.ResultCount	286750
+EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.Pubmed_ResultsController.ResultCount	34955
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.Pubmed_ResultsController.RunLastQuery	
-EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.TimelineAdPlaceHolder.BlobID	NCID_1_95269570_130.14.18.125_9001_1536796761_80700737_0MetA0_S_MegaStore_F_1
+EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.TimelineAdPlaceHolder.BlobID	NCID_1_89902867_130.14.22.215_9001_1539830327_1969173407_0MetA0_S_MegaStore_F_1
 EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.TimelineAdPlaceHolder.CurrTimelineYear	
 p$a	EntrezSystem2.PEntrez.PubMed.Pubmed_ResultsPanel.Pubmed_DisplayBar.sPresentation
 p$l	EntrezSystem2
 p$st	pubmed
-term	((tumor+OR+cancer))+AND+China+
+term	((China)+AND+(microRNA+OR+miRNA+OR+circRNA+OR+"noncoding+RNA"+OR+"non-coding+RNA"))+AND+("2010"[Date+-+Publication]+:+"2019"[Date+-+Publication])+

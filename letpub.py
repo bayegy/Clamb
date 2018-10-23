@@ -21,7 +21,6 @@ class letpub(object):
         self.headforget = {}
         self.headforget['Host'] = self.header['Host']
         self.headforget['User-Agent'] = self.header['User-Agent']
-        #self.headforget['Referer'] = self.header['Referer']
         self.headforget['Connection'] = 'close'
         self.headforget['Upgrade-Insecure-Requests'] = '1'
         option = webdriver.FirefoxOptions()
@@ -37,7 +36,6 @@ class letpub(object):
                 # self.driver.get('http://www.letpub.com.cn/index.php?page=grant')
                 res = requests.get(url="http://www.letpub.com.cn/index.php?page=grant",
                                    headers=self.header, proxies=self.proxy, timeout=20)
-                #res = self.driver.page_source
                 if res.status_code == 200:
                     tree = html.fromstring(res.content)
                     key = tree.xpath('//select[@name="addcomment_s1"]/option/@value')
@@ -48,9 +46,9 @@ class letpub(object):
                     return([key, subkey])
                 else:
                     raise(TimeoutError)
-            except:
+            except Exception as e:
                 self.proxy = self.ipchanger.__next__()
-                print("Changed ip location to %s" % (self.proxy['http']))
+                print("Error occurred: %s  \nChanged ip location to %s" % (str(e), self.proxy['http']))
 
     def changeip(self):
         while True:
@@ -121,9 +119,9 @@ class letpub(object):
             except ConnectionError:
                 print("ConnectionError, please wait for 3 seconds")
                 time.sleep(3)
-            except:
+            except Exception as e:
                 self.proxy = self.ipchanger.__next__()
-                print("Changed ip location to %s" % (self.proxy['http']))
+                print("Error occurred: %s \n Changed ip location to %s" % (str(e), self.proxy['http']))
 
 #        if 0 < pages <= 50:
 #            print([pages, records])
@@ -178,7 +176,8 @@ class letpub(object):
             except ConnectionError:
                 print("ConnectionError, please wait for 2 seconds")
                 time.sleep(3)
-            except:
+            except Exception as e:
+                print(str(e))
                 self.proxy = self.ipchanger.__next__()
                 print("Changed ip location to %s" % (self.proxy['http']))
 
@@ -195,7 +194,8 @@ class letpub(object):
             out = out.tolist()
     #        print(out)
             return(out)
-        except:
+        except Exception as e:
+            print(str(e))
             print(out1)
             print(out2)
             print('please check search id: %s' % (search_id))
@@ -209,6 +209,8 @@ class letpub(object):
                 prepmid = []
                 for line in prefile:
                     prepmid.append(re.search('\t([^\t\n]+)$', line).group(1).strip())
+                if prepmid:
+                    prepmid.pop(0)
 
         except FileNotFoundError:
             prepmid = []
