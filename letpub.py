@@ -72,10 +72,9 @@ class letpub(object):
 
     def formdict(self, file, sep):
         d = {}
-        for line in open(file, "r", encoding='utf-8'):
-            line = re.sub('\n$', '', line)
-            if not re.search("  $", line):
-                li = re.split(sep, line)
+        for line in open(file, "r"):
+            li = re.split(sep, line.strip())
+            if len(li) == 2:
                 d[li[0]] = li[1]
         return(d)
 
