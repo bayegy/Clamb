@@ -2,21 +2,31 @@ from selenium import webdriver
 from lxml import html
 import numpy as np
 import re
+import requests
+import time
+import random
+import pandas as pd
 
 
 class Net(object):
-    """docstring for Net"""
+    """
+    post_headers, get_headers: file path of headers, key and value should be seprated by ':'
+    """
 
-    def __init__(self):
-        self.driver = None
+    def __init__(self, post_headers=False, get_headers=False):
+        self.__driver = None
+        self.response = None
+        self.__ip = self.get_proxy()
+        self.__post_headers = self.parse_form(post_headers, sep=":") if post_headers else False
+        self.__get_headers = self.parse_form(get_headers, sep=":") if get_headers else False
 
     def get_proxy(self):
-        print("Activing foxDriver, always remember to close Net.driver if you don't use getProxy anymore.")
-        self.driver = self.fox_driver()
+        self.__driver = self.fox_driver()
+        print("Fox driver have been activated, use close method to close it")
         while True:
             try:
-                self.driver.get('http://www.goubanjia.com/')
-                res = self.driver.page_source
+                self.__driver.get('http://www.goubanjia.com/')
+                res = self.__driver.page_source
                 tree = html.fromstring(res)
                 ipnode = tree.xpath("//td[@class='ip']")
                 ips = []
@@ -36,9 +46,34 @@ class Net(object):
                 print(e)
                 yield(self.get_proxy())
 
+    def requests(self, *args, method="post", timeout=20, proxies=False, **kwargs) -> html.HtmlElement:
+        """
+        Same as requests.post, requests.get;
+        *arg and **kwargs will be passed to requests.post or requests.get.
+        """
+        time.sleep(random.randint(1, 3))
+        while True:
+            try:
+                self.response = requests.post(*args, **kwargs, timeout=timeout, proxies=proxies) if method == "post" else requests.get(
+                    *args, **kwargs, timeout=timeout, proxies=proxies)
+                # self.write_reponse(response)
+                if self.response.status_code == 200:
+                    return html.fromstring(self.response.text)
+                else:
+                    return self.requests(*args, method=method, timeout=timeout, proxies=self.__ip.__next__(), **kwargs)
+            except Exception as e:
+                print(e)
+                return self.requests(*args, method=method, timeout=timeout, proxies=self.__ip.__next__(), **kwargs)
+
+    def hrequests(self, *args, method="post", **kwargs):
+        """
+        Do not use headers in this case, as this function will automatically use the headers passed to class Net (headers path).
+        """
+        return self.requests(*args, method="post", **kwargs, headers=self.__post_headers) if method == "post" else self.requests(*args, method="get", **kwargs, headers=self.__get_headers)
+
     def parse_form(self, file, sep):
         d = {}
-        with open(file, "r",encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             for line in f:
                 li = re.split(sep, line)
                 if len(li) == 2:
@@ -50,8 +85,45 @@ class Net(object):
         option.set_headless()
         return webdriver.Firefox(firefox_options=option)
 
+    def write_reponse(self):
+        with open("current_response_html.html", encoding="utf-8", mode="w") as rf:
+            rf.write(self.response.text)
+
+    @staticmethod
+    def get_file_column(self, path, number=2, sep="\t") -> np.array:
+        """
+        number: number of columns to get, if -1, all colmns will be fetched,
+                or use [] to specify specific column
+        this method return a array of str
+        """
+        data = pd.read_csv(path, sep=sep)
+        if isinstance(number, list):
+            out = data.iloc[:, number]
+        else:
+            out = data if number == -1 else data.iloc[:, 0:number]
+        return out.applymap(lambda x: str(x).strip()).values
+
+    @staticmethod
+    def array_in(self, record, array):
+        for e in array:
+            if list(e) == list(record):
+                return True
+        return False
+
+    @staticmethod
+    def find_email(self, string) -> str:
+        found = re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', string)
+        return found.group() if found else ""
+
+    @staticmethod
+    def find_name(self, string, refer) -> str:
+        for n in refer:
+            if not string.find(n) == -1:
+                return n
+        return ""
+
     def close(self):
         try:
-            self.driver.close()
+            self.__driver.close()
         except Exception:
             pass
