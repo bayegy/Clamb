@@ -894,3 +894,17 @@ console.error: BroadcastService:
 1552838236164	Marionette	DEBUG	0 <- [1,5,null,{"value":"<html lang=\"zh-CN\"><!--<![endif]--><head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"X-UA-Compatible ... \"text/javascript\" src=\"http://www.goubanjia.com/theme/goubanjia/javascript/pde.js?v=1.0\"></script>\n\n\n</body></html>"}]
 1552838821155	Marionette	DEBUG	Closed connection 0
 Exiting due to channel error.
+1552869473071	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\xing\\AppData\\Local\\Temp\\rust_mozprofile.FOealYAevjQj"
+*** You are running in headless mode.
+1552869474401	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: resource://pdf.js/
+1552869474402	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid host permission: about:reader*
+1552869479080	Marionette	INFO	Listening on port 61193
+1552869479475	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:188:13
+
