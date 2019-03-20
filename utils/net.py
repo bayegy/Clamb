@@ -44,14 +44,14 @@ class Net(object):
                         yield(ipout)
             except Exception as e:
                 print(e)
-                yield(self.get_proxy())
+                yield(self.get_proxy().__next__())
 
     def requests(self, *args, method="post", timeout=20, proxies=False, **kwargs) -> html.HtmlElement:
         """
         Same as requests.post, requests.get;
         *arg and **kwargs will be passed to requests.post or requests.get.
         """
-        time.sleep(random.randint(1, 3))
+        time.sleep(2+random.randint(1, 3))
         while True:
             try:
                 self.response = requests.post(*args, **kwargs, timeout=timeout, proxies=proxies) if method == "post" else requests.get(
