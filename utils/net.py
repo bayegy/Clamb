@@ -17,6 +17,7 @@ class Net(object):
         self.__driver = None
         self.response = None
         self.__ip = self.get_proxy()
+        # print(self.__ip.__next__())
         self.__post_headers = self.parse_form(post_headers, sep=":") if post_headers else False
         self.__get_headers = self.parse_form(get_headers, sep=":") if get_headers else False
 
@@ -44,7 +45,10 @@ class Net(object):
                         yield(ipout)
             except Exception as e:
                 print(e)
-                yield(self.get_proxy().__next__())
+                self.__driver.close()
+                newip = self.get_proxy()  # 初始化生成器
+                while True:
+                    yield(newip.__next__())
 
     def requests(self, *args, method="post", timeout=20, proxies=False, **kwargs) -> html.HtmlElement:
         """
