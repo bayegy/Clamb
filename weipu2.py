@@ -41,9 +41,9 @@ class Weipu(object):
         idset = self.__net.requests(self.__url, req_data, headers=self.__headers, timeout=20).xpath("//@articleid")
         return list(set(idset))
 
-    def find_email(self, string) -> str:
-        found = re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', string)
-        return found.group() if found else ""
+#    def find_email(self, string) -> str:
+#        found = re.search('[a-zA-Z0-9_\-\+.．]+@[a-zA-Z0-9_\-\+.．]+', string)
+#        return found.group() if found else ""
 
     def find_name(self, string, refer) -> str:
         for n in refer:
@@ -56,16 +56,16 @@ class Weipu(object):
                                    url="http://qikan.cqvip.com/Qikan/Article/Detail?id={}".format(article_id))
         # authors = tree.xpath('//div[@class="author"]/span/a/span/text()')
         author_info = ''.join(tree.xpath('//div[@class="others"]/text()')
-                              ).strip().replace('．', '.').replace('\n', '').replace('\r', '')
+                              ).strip().replace('．', '.').replace('\n', '').replace('\r', '').replace('\t', ';')
         infos = re.split('通[讯|信]作者', author_info)
         # print(infos)
         email = ''
         for info in infos:
             if not info.find(author) == -1:
-                email = self.find_email(info)
+                email = self.__net.find_email(info)
         if email:
             title = tree.xpath("//h1/text()")[0].strip()
-            organ = ';'.join(tree.xpath('//div[@class="organ"]/span/a/span/text()'))
+            organ = ';'.join(tree.xpath('//div[@class="organ"]/span/a/span/text()')).replace('\t', ';')
             return [email, author_info, organ, title]
         else:
             return []
@@ -100,9 +100,12 @@ class Weipu(object):
         colnames = list(data.columns) + ["邮箱", "作者信息", "作者机构", "文章标题", "查找方式"]
         data = data.values
         try:
+            print("results stored in {}".format(results_file_name))
             done = self.get_column(results_file_name)
             done = [list(i) for i in done]
-        except Exception:
+        except Exception as e:
+            print(e)
+            print("did not found results table, create a new one")
             done = []
 
         bar = ProgressBar(data.shape[0])
