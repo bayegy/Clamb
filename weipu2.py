@@ -134,6 +134,6 @@ class Weipu(object):
 if __name__ == '__main__':
     w = Weipu()
     try:
-        w.run('data/medical_sciences_funds_2014-2018_new.txt')
+        w.run('data/life_sciences_funds_2014-2018_new.txt')
     finally:
         w.close()

@@ -27,24 +27,24 @@ class Net(object):
         self.__driver = self.fox_driver()
         print("Fox driver have been activated, use close method to close it")
         while True:
+            time.sleep(2 + random.randint(1, 3))
             try:
                 self.__driver.get('http://www.goubanjia.com/')
                 res = self.__driver.page_source
                 tree = html.fromstring(res)
-                ipnode = tree.xpath("//td[@class='ip']")
-                ips = []
-                for ipdn in range(len(ipnode)):
-                    ip = ipnode[ipdn].xpath("*[not(@style='display:none;' or @style='display: none;')]/text()")
-                    ip = "".join(ip[0:-1]) + ":" + ip[-1]
-                    ips.append(ip)
-                # ip2=tree.xpath("//td[@class='ip']//text()")
-                ln = len(ips)
-                tp = np.array(tree.xpath("//tbody/tr/td[not(@class='ip')]/a/text()")).reshape(ln, 6)
-                for n in range(ln):
-                    if tp[n, 0] == '高匿' and tp[n, 1] == self.protocol:
-                        ipout = {}
-                        ipout[self.protocol] = "{}://".format(self.protocol) + ips[n]
-                        yield(ipout)
+                rows = tree.xpath('//tbody/tr')
+                for row in rows:
+                    try:
+                        ip = row.xpath('td[@class="ip"]/*[not(contains(@style,"none"))]/text()')
+                        ip = [i.strip() for i in ip]
+                        ip = "".join(ip[0:-1]) + ":" + ip[-1]
+                        degree = row.xpath('td[2]/a/text()')[0].strip()
+                        protocol = row.xpath('td[3]/a/text()')[0].strip()
+                        if protocol == self.protocol and degree == '高匿':
+                            yield dict([(protocol, "{}://{}".format(protocol, ip))])
+                    except Exception as e:
+                        print(e)
+                        continue
             except Exception as e:
                 print(e)
                 self.__driver.close()
@@ -52,7 +52,7 @@ class Net(object):
                 while True:
                     yield(newip.__next__())
 
-    def requests(self, *args, method="post", timeout=20, **kwargs) -> html.HtmlElement:
+    def requests(self, *args, method="post", timeout=20, return_tree=True, **kwargs) -> html.HtmlElement:
         """
         Same as requests.post, requests.get;
         *arg and **kwargs will be passed to requests.post or requests.get.
@@ -65,13 +65,35 @@ class Net(object):
                     *args, **kwargs, timeout=timeout, proxies=self.proxy)
                 # self.write_reponse(response)
                 if self.response.status_code == 200:
-                    return html.fromstring(self.response.text)
+                    return html.fromstring(self.response.text) if return_tree else self.response.text
                 else:
                     self.proxy = self.__ip.__next__()
-                    return self.requests(*args, method=method, timeout=timeout, **kwargs)
+                    return self.requests(*args, method=method, timeout=timeout, return_tree=return_tree, **kwargs)
             except Exception as e:
+                print(e)
                 self.proxy = self.__ip.__next__()
-                return self.requests(*args, method=method, timeout=timeout, **kwargs)
+                return self.requests(*args, method=method, timeout=timeout, return_tree=return_tree, **kwargs)
+
+    def lrequests(self, *args, method="post", timeout=20, return_tree=True, **kwargs) -> html.HtmlElement:
+        """
+        Same as requests.post, requests.get;
+        *arg and **kwargs will be passed to requests.post or requests.get.
+        """
+        time.sleep(2 + random.randint(1, 3))
+        while True:
+            try:
+                self.response = requests.post(*args, **kwargs, timeout=timeout) if method == "post" else requests.get(
+                    *args, **kwargs, timeout=timeout)
+                # self.write_reponse(response)
+                if self.response.status_code == 200:
+                    return html.fromstring(self.response.text) if return_tree else self.response.text
+                else:
+                    # self.proxy = self.__ip.__next__()
+                    return self.lrequests(*args, method=method, timeout=timeout, return_tree=return_tree, **kwargs)
+            except Exception as e:
+                print(e)
+                # self.proxy = self.__ip.__next__()
+                return self.requests(*args, method=method, timeout=timeout, return_tree=return_tree, **kwargs)
 
     def hrequests(self, *args, method="post", **kwargs):
         """
@@ -80,7 +102,7 @@ class Net(object):
         return self.requests(*args, method="post", **kwargs, headers=self.post_headers) if method == "post" else self.requests(*args, method="get", **kwargs, headers=self.get_headers)
 
     @staticmethod
-    def parse_form(file, sep):
+    def parse_form(file, sep=":"):
         d = {}
         with open(file, "r", encoding="utf-8") as f:
             for line in f:
