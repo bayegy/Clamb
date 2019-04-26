@@ -114,9 +114,9 @@ class Weipu(object):
                 results.write('\t'.join(colnames) + '\n')
             for row in data:
                 row = [str(i) for i in row]
-                author, organ = (row[0].strip(), row[1].strip())
+                author, organ = (row[0], row[1])
                 if not self.array_in([author, organ], done):
-                    email = self.iter_find_author_email(author, organ)
+                    email = self.iter_find_author_email(author.strip(), organ.strip())
                     results.write('\t'.join(list(row) + email) + '\n')
                     done.append([author, organ])
                     results.flush()
