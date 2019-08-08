@@ -101,7 +101,7 @@ class Weipu(object):
         data = data.values
         try:
             print("results stored in {}".format(results_file_name))
-            done = self.get_column(results_file_name)
+            done = self.__net.get_file_column(results_file_name)
             done = [list(i) for i in done]
         except Exception as e:
             print(e)
@@ -114,9 +114,9 @@ class Weipu(object):
                 results.write('\t'.join(colnames) + '\n')
             for row in data:
                 row = [str(i) for i in row]
-                author, organ = (row[0], row[1])
+                author, organ = (row[0].strip(), row[1].strip())
                 if not self.array_in([author, organ], done):
-                    email = self.iter_find_author_email(author.strip(), organ.strip())
+                    email = self.iter_find_author_email(author, organ)
                     results.write('\t'.join(list(row) + email) + '\n')
                     done.append([author, organ])
                     results.flush()
@@ -134,6 +134,6 @@ class Weipu(object):
 if __name__ == '__main__':
     w = Weipu()
     try:
-        w.run('data/life_sciences_funds_2014-2018_new.txt')
+        w.run('data/no-microbes-2018-2014-life.txt')
     finally:
         w.close()

@@ -52,7 +52,7 @@ class Net(object):
                 while True:
                     yield(newip.__next__())
 
-    def requests(self, *args, method="post", timeout=20, return_tree=True, **kwargs) -> html.HtmlElement:
+    def requests(self, *args, method="post", timeout=50, return_tree=True, **kwargs) -> html.HtmlElement:
         """
         Same as requests.post, requests.get;
         *arg and **kwargs will be passed to requests.post or requests.get.
