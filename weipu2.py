@@ -1,4 +1,4 @@
-# -*-coding:utf-8-*-
+#-*-coding:utf-8-*-
 from lxml import html
 import requests
 import re
@@ -17,6 +17,7 @@ class Weipu(object):
         self.__headers = self.__net.parse_form("config/weipu_header.conf", sep=":")
         self.__get_headers = self.__net.parse_form("config/weipu_get_header.conf", sep=":")
         # self.__ip = self.__net.get_proxy()
+        # self.__url = "http://qikan.cqvip.com/Search/SearchList"
         self.__url = "http://qikan.cqvip.com/Search/SearchList"
         self.__form = self.__net.parse_form("config/weipu_form.conf", sep="\t")
 
@@ -134,6 +135,6 @@ class Weipu(object):
 if __name__ == '__main__':
     w = Weipu()
     try:
-        w.run('data/no-microbes-2018-2014-life.txt')
+        w.run('data/2018-earth-science.txt')
     finally:
         w.close()
