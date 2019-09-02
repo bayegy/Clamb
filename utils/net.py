@@ -18,9 +18,8 @@ class Net(object):
 
     """
 
-    def __init__(self, protocol='http', post_headers=False, get_headers=False, driver=False, proxies=False):
+    def __init__(self, protocol='http', post_headers=False, get_headers=False, proxies=False):
         self.protocol = protocol
-        self.pre_driver = driver
         # response = None
         self.proxies = proxies or self.get_proxy_from_myserver()
         self.proxy = False
@@ -29,14 +28,14 @@ class Net(object):
         self.post_headers = self.parse_form(post_headers, sep=":") if post_headers else False
         self.get_headers = self.parse_form(get_headers, sep=":") if get_headers else False
 
-    def get_proxy(self):
-        self.driver = self.pre_driver or self.fox_driver()
+    def get_proxy(self, pdriver=False):
+        driver = pdriver or self.fox_driver()
         print("Fox driver have been activated")
         while True:
             time.sleep(2 + random.randint(1, 3))
             try:
-                self.driver.get('http://www.goubanjia.com/')
-                res = self.driver.page_source
+                driver.get('http://www.goubanjia.com/')
+                res = driver.page_source
                 tree = html.fromstring(res)
                 rows = tree.xpath('//tbody/tr')
                 for row in rows:
@@ -50,16 +49,17 @@ class Net(object):
                             proxy_out = dict([(protocol, "{}://{}".format(protocol, ip))])
                             print("proxy found: " + str(proxy_out))
                             yield proxy_out
-                    except Exception as e:
-                        print(str(e) + '\n#################bad proxy, skip it...#################')
+                    except IndexError:
+                        print('\n#################bad proxy, skip it...#################')
                         # continue
+            except KeyboardInterrupt:
+                driver.close()
+                sys.exit()
             except Exception as e:
                 print(str(e) + '\n#################tring to get proxy another time...#################')
-                # continue
-                # self.driver.close()
-                # newip = self.get_proxy()  # 初始化生成器
-                # while True:
-                #     yield(newip.__next__())
+            finally:
+                if not pdriver:
+                    driver.close()
 
     @staticmethod
     def get_proxy_from_myserver(host="192.168.1.197"):
@@ -151,10 +151,11 @@ class Net(object):
             out = data.iloc[:, number]
         else:
             out = data if number == -1 else data.iloc[:, 0:number]
-        return out.applymap(lambda x: str(x).strip()).values
+        df = out.applymap(lambda x: str(x).strip())
+        return df.iloc[:, 0].values if number == 1 else df.values
 
     @staticmethod
-    def array_in(record, array):
+    def array_in(record, array) -> bool:
         for e in array:
             if list(e) == list(record):
                 return True
@@ -172,8 +173,12 @@ class Net(object):
                 return n
         return ""
 
-    def close(self):
-        try:
-            self.driver.close()
-        except Exception:
-            pass
+    @staticmethod
+    def xpath_first(tree, path) -> str:
+        res = tree.xpath(path)
+        return res[0].strip() if res else ""
+
+    @staticmethod
+    def search_str(pattern, string, nr=0, **kwargs) -> str:
+        res = re.search(pattern, string, **kwargs)
+        return res.group(nr) if res else ""
