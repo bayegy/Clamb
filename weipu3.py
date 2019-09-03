@@ -65,13 +65,18 @@ class Weipu(object):
         all_authors = [a.strip() for a in tree.xpath('//div[@class="author"]/span/a/span/text()')]
         author_info = ''.join(tree.xpath('//div[@class="others"]/text()')
                               ).strip().replace('．', '.').replace('\n', '').replace('\r', '').replace('\t', ';')
-        infos = re.split('通[讯信]作者[：:]*', author_info) + [""]
+        infos = re.split('通[讯信]作者', author_info)
+        if len(infos) == 1:
+            infos = re.split("Corresponding", author_info, flags=re.I) + [""]
+
         first_author, com_author = infos[0].strip(), infos[1].strip()
         # print(infos)
         title = self.__net.xpath_first(tree, "//h1/text()")
         organ = ';'.join(tree.xpath('//div[@class="organ"]/span/a/span/text()')).replace('\t', ';')
 
         first_author_name = self.__net.find_name(first_author, all_authors)
+        if not first_author_name and all_authors:
+            first_author_name = all_authors[0]
         com_author_name = self.__net.find_name(com_author, all_authors)
 
         first_author_email = self.__net.find_email(first_author)
@@ -90,7 +95,7 @@ class Weipu(object):
         return [article_id, journal_name, year, issue, title, ','.join(all_authors), organ, keywords, author_info, com_author_name, com_author_email, com_author_tel, first_author_name, first_author_email, first_author_tel]
 
     def run(self, journal_list_file):
-        base_path = os.path.dirname(__file__) + '/'
+        base_path = os.path.dirname(os.path.abspath(__file__)) + '/'
         results_file_name = base_path + "results/" + \
             os.path.splitext(os.path.basename(journal_list_file))[0] + "_article_information.txt"
         done_journal_list_file_name = base_path + "data/done_journals.txt"
