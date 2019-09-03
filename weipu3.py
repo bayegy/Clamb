@@ -1,23 +1,17 @@
 # -*-coding:utf-8-*-
-from lxml import html
-import requests
 import re
 import sys
 import os
-import time
-import random
-import numpy as np
-import pandas as pd
 from utils.net import Net
 from utils.progress_bar import ProgressBar
-# import pdb
-
 
 class Weipu(object):
     def __init__(self):
         self.__net = Net()
-        self.__headers = self.__net.parse_form("config/weipu_header.conf", sep=":")
-        self.__get_headers = self.__net.parse_form("config/weipu_get_header.conf", sep=":")
+        self.__headers = self.__net.parse_form(
+            "config/weipu_header.conf", sep=":")
+        self.__get_headers = self.__net.parse_form(
+            "config/weipu_get_header.conf", sep=":")
         # self.__ip = self.__net.get_proxy()
         # self.__url = "http://qikan.cqvip.com/Search/SearchList"
         self.__url = "http://qikan.cqvip.com/Search/SearchList"
@@ -35,7 +29,8 @@ class Weipu(object):
         req_data["searchParamModel"] = '{"ObjectType":1,"SearchKeyList":[{"FieldIdentifier":"J","SearchKey":"%s","PreLogicalOperator":"","IsExact":"1"}],"SearchExpression":"","BeginYear":"2014","EndYear":"2019","JournalRange":"","DomainRange":"","PageSize":"100","PageNum":"%s","Sort":"0","ClusterFilter":"","SType":"","StrIds":"","UpdateTimeType":"","ClusterUseType":"Article","IsNoteHistory":1,"AdvShowTitle":"刊名=%s AND 年份：2014-2019","ObjectId":"","ObjectSearchType":"0","ChineseEnglishExtend":"0","SynonymExtend":"0","ShowTotalCount":"0","AdvTabGuid":"1db1e78c-4454-8675-d5b9-3eb71928b687"}' % (
             journal, page, journal)
         # print(req_data)
-        idset = self.__net.requests(self.__url, req_data, headers=self.__headers, timeout=20).xpath("//@articleid")
+        idset = self.__net.requests(
+            self.__url, req_data, headers=self.__headers, timeout=20).xpath("//@articleid")
         return list(set(idset))
 
 #    def find_email(self, string) -> str:
@@ -62,7 +57,8 @@ class Weipu(object):
     def find_article_info(self, article_id) -> []:
         tree = self.__net.requests(method="get", timeout=20, headers=self.__get_headers,
                                    url="http://qikan.cqvip.com/Qikan/Article/Detail?id={}".format(article_id))
-        all_authors = [a.strip() for a in tree.xpath('//div[@class="author"]/span/a/span/text()')]
+        all_authors = [a.strip() for a in tree.xpath(
+            '//div[@class="author"]/span/a/span/text()')]
         author_info = ''.join(tree.xpath('//div[@class="others"]/text()')
                               ).strip().replace('．', '.').replace('\n', '').replace('\r', '').replace('\t', ';')
         infos = re.split('通[讯信]作者', author_info)
@@ -72,7 +68,8 @@ class Weipu(object):
         first_author, com_author = infos[0].strip(), infos[1].strip()
         # print(infos)
         title = self.__net.xpath_first(tree, "//h1/text()")
-        organ = ';'.join(tree.xpath('//div[@class="organ"]/span/a/span/text()')).replace('\t', ';')
+        organ = ';'.join(tree.xpath(
+            '//div[@class="organ"]/span/a/span/text()')).replace('\t', ';')
 
         first_author_name = self.__net.find_name(first_author, all_authors)
         if not first_author_name and all_authors:
@@ -85,22 +82,27 @@ class Weipu(object):
         first_author_tel = self.find_tel(first_author)
         com_author_tel = self.find_tel(com_author)
 
-        journal_info = self.__net.xpath_first(tree, '//span[@class="vol"]/text()')
+        journal_info = self.__net.xpath_first(
+            tree, '//span[@class="vol"]/text()')
 
         year = self.__net.search_str("(\d+)年", journal_info, 1)
         issue = self.__net.search_str("(\d+)期", journal_info, 1)
-        journal_name = self.__net.xpath_first(tree, '//span[@class="from"]/a/text()')
+        journal_name = self.__net.xpath_first(
+            tree, '//span[@class="from"]/a/text()')
 
-        keywords = ','.join(tree.xpath('//div[@class="subject"]/span/a/text()'))
+        keywords = ','.join(tree.xpath(
+            '//div[@class="subject"]/span/a/text()'))
         return [article_id, journal_name, year, issue, title, ','.join(all_authors), organ, keywords, author_info, com_author_name, com_author_email, com_author_tel, first_author_name, first_author_email, first_author_tel]
 
     def run(self, journal_list_file):
         base_path = os.path.dirname(os.path.abspath(__file__)) + '/'
         results_file_name = base_path + "results/" + \
-            os.path.splitext(os.path.basename(journal_list_file))[0] + "_article_information.txt"
+            os.path.splitext(os.path.basename(journal_list_file))[
+                0] + "_article_information.txt"
         done_journal_list_file_name = base_path + "data/done_journals.txt"
         with open(journal_list_file) as jl:
-            journal_list = [jn.strip() for jn in jl.read().split('\n') if jn.strip()]
+            journal_list = [jn.strip()
+                            for jn in jl.read().split('\n') if jn.strip()]
 
         colnames = ['文章ID', '期刊名', '年份', '期', '论文题目', '作者', '机构', '关键词',
                     '作者简介', '通讯作者姓名', '通讯作者邮箱', '通讯作者电话', '第一作者姓名', '第一作者邮箱', '第一作者电话']
@@ -116,7 +118,8 @@ class Weipu(object):
 
         try:
             with open(done_journal_list_file_name) as djl:
-                done_journal_list = [jn.strip() for jn in djl.read().split('\n') if jn.strip()]
+                done_journal_list = [jn.strip()
+                                     for jn in djl.read().split('\n') if jn.strip()]
         except Exception:
             done_journal_list = []
 
